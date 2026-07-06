@@ -1,0 +1,102 @@
+
+:root{--black:#050505;--off:#0b0b10;--panel:#111118;--bone:#f4eadf;--taupe:#b8b0a3;--lime:#c6ff2e;--purple:#3a0ca3;--violet:#7a2cff;--line:rgba(244,234,223,.18);--greenline:rgba(198,255,46,.38);--max:1180px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--bone);font-family:Inter,Arial,sans-serif;line-height:1.55;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 84% 5%,rgba(122,44,255,.42),transparent 30rem),radial-gradient(circle at 8% 34%,rgba(58,12,163,.38),transparent 36rem),radial-gradient(circle at 92% 92%,rgba(198,255,46,.08),transparent 30rem),linear-gradient(135deg,rgba(244,234,223,.035) 0 1px,transparent 1px 18px)}body:after{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,5,5,.08),rgba(5,5,5,.9))}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 34px));margin:auto}
+
+/* ── Nav ── */
+.nav{position:sticky;top:0;z-index:50;background:rgba(5,5,5,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(244,234,223,.12)}.nav-inner{min-height:180px;display:flex;align-items:center;justify-content:space-between;gap:24px}.nav img{width:680px;max-width:80vw}.nav-links{display:flex;gap:22px;color:var(--taupe);font-family:Oswald;text-transform:uppercase;letter-spacing:.16em;font-size:.74rem}.nav-links a:hover{color:var(--lime)}
+
+/* ── Type ── */
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.05em;margin:0}h1{font-size:clamp(4.25rem,10.4vw,9.4rem);line-height:.76}h2{font-size:clamp(3.05rem,7.4vw,6.8rem);line-height:.80}h3{font-size:clamp(2.5rem,5vw,5.2rem);line-height:.84}.kicker{font-family:Oswald;text-transform:uppercase;letter-spacing:.22em;color:var(--lime);font-size:.72rem;margin-bottom:20px}.line{height:1px;width:min(460px,100%);background:linear-gradient(90deg,var(--lime),var(--violet),transparent);margin:30px 0 24px}.lead{font-size:clamp(1.08rem,1.9vw,1.34rem);max-width:720px;margin:0;color:var(--bone)}
+
+/* ── Buttons ── */
+.btns{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 20px;border:1px solid rgba(244,234,223,.36);font-family:Oswald;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem}.btn.primary{background:var(--lime);border-color:var(--lime);color:#070707}
+
+/* ── Hero ── */
+.hero{min-height:calc(100vh - 180px);display:grid;align-items:center;padding:66px 0}.hero-grid{display:grid;grid-template-columns:.94fr 1.06fr;gap:48px;align-items:center}.availability{border:1px solid var(--lime);background:rgba(198,255,46,.05);padding:17px 19px;margin-top:24px}.availability b{font-family:Oswald;text-transform:uppercase;letter-spacing:.16em;color:var(--lime);font-size:.7rem}.availability p{margin:7px 0 0}
+
+/* ── Hero wall / masonry ── */
+.hero-wall{min-height:690px;border:1px solid var(--line);background:radial-gradient(circle at 75% 12%,rgba(122,44,255,.34),transparent 28rem),radial-gradient(circle at 12% 88%,rgba(198,255,46,.10),transparent 22rem),rgba(16,16,20,.78);padding:24px;overflow:hidden;position:relative}.hero-wall:before{content:"";position:absolute;inset:22px;border:1px solid rgba(198,255,46,.22);pointer-events:none}
+/* Masonry: fixed row heights intentionally create the collage crop aesthetic */
+.masonry{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:70px;gap:12px;transform:rotate(-1deg)}.tile{border:1px solid rgba(244,234,223,.22);background:#050505;box-shadow:0 16px 44px rgba(0,0,0,.45);overflow:hidden}.tile img{width:100%;height:100%;object-fit:cover}.tile.logo{grid-column:1/7;grid-row:1/4;display:flex;align-items:center;justify-content:center;padding:18px}.tile.logo img{object-fit:contain}.tile.a{grid-column:7/13;grid-row:1/6}.tile.b{grid-column:1/5;grid-row:4/8}.tile.c{grid-column:5/9;grid-row:6/10}.tile.d{grid-column:9/13;grid-row:6/10}.tile.e{grid-column:1/6;grid-row:8/11}.tile.f{grid-column:6/13;grid-row:10/13}.caption-card{grid-column:1/7;grid-row:11/13;border:1px solid var(--greenline);background:rgba(198,255,46,.06);padding:16px;display:flex;flex-direction:column;justify-content:center}.caption-card b{font-family:'Cormorant Garamond';font-size:2.5rem;color:var(--lime);line-height:.9}.caption-card span{font-family:Oswald;text-transform:uppercase;letter-spacing:.16em;color:var(--taupe);font-size:.62rem;margin-top:10px}
+
+/* ── Manifesto ── */
+.manifesto{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(16,16,20,.30);padding:80px 0}.manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}.manifesto p{font-size:1.16rem;color:var(--bone);margin-top:0}.manifesto strong,.split strong,.about strong{color:var(--lime)}
+
+/* ── Sections / cases ── */
+section{padding:88px 0}.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:end;margin-bottom:34px}.split p{color:var(--taupe);font-size:1.08rem;margin:0}.case{border:1px solid var(--line);background:rgba(16,16,20,.66);margin-bottom:34px;overflow:hidden}.case-grid{display:grid;grid-template-columns:.82fr 1.18fr}.copy{padding:34px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:30px}.num{font-family:Oswald;text-transform:uppercase;letter-spacing:.18em;color:var(--lime);font-size:.72rem;margin-bottom:12px}.sub{font-size:1.05rem;max-width:590px;color:var(--bone)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.tag{border:1px solid var(--greenline);background:rgba(198,255,46,.045);padding:7px 9px;font-family:Oswald;text-transform:uppercase;letter-spacing:.11em;font-size:.63rem}
+
+/* ── Stats ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{border:1px solid rgba(198,255,46,.42);background:rgba(198,255,46,.055);padding:13px 10px}.stat b{font-family:'Cormorant Garamond';font-size:2.18rem;color:var(--lime);line-height:1;display:block}.stat span{font-family:Oswald;text-transform:uppercase;letter-spacing:.10em;color:var(--taupe);font-size:.58rem;line-height:1.2;display:block;margin-top:6px}
+
+/* ── Book list (Inner Hour case) ── */
+.book-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.book-item{border:1px solid var(--line);background:rgba(244,234,223,.03);padding:12px 14px}.book-item b{font-family:'Cormorant Garamond';font-size:1.3rem;color:var(--lime);display:block;line-height:1.1;margin-bottom:6px}.book-item span{font-family:Inter,Arial,sans-serif;font-size:.82rem;color:var(--taupe);line-height:1.45}
+
+/* ── Case gallery — images show in full, no crop ── */
+.visual{padding:24px;background:radial-gradient(circle at 78% 18%,rgba(122,44,255,.34),transparent 24rem),#080808;display:grid;align-content:start}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.g{border:1px solid rgba(244,234,223,.22);overflow:hidden;background:#050505}
+.g img{width:100%;height:auto;display:block;object-fit:contain}
+
+/* ── Services ── */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.service{border:1px solid var(--line);min-height:220px;background:rgba(244,234,223,.045);padding:20px;display:flex;flex-direction:column;justify-content:space-between}.service .top{font-family:Oswald;text-transform:uppercase;letter-spacing:.16em;color:var(--lime);font-size:.68rem}.service h3{font-size:2.2rem}.service p{color:var(--taupe);font-size:.92rem;margin:0}
+
+/* ── Method steps ── */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;border:1px solid var(--line);background:var(--line)}.step{background:#070707;min-height:230px;padding:20px}.step b{font-family:Oswald;text-transform:uppercase;letter-spacing:.18em;color:var(--lime);font-size:.66rem}.step h3{font-size:2.1rem;margin:40px 0 12px}.step p{color:var(--taupe);font-size:.91rem;margin:0}
+
+/* ── About ── */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px}.about p{font-size:1.12rem}
+
+/* ── Final / contact ── */
+.final{text-align:center;padding:110px 0}.final img{width:54px;margin:0 auto 24px}.final h2{max-width:980px;margin:auto}.final p{max-width:760px;margin:24px auto 28px;color:var(--taupe);font-size:1.08rem}.contact{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}.contact a{border:1px solid rgba(244,234,223,.30);padding:12px 14px;font-family:Oswald;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem}.contact .main{background:var(--lime);border-color:var(--lime);color:#090909}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--line);padding:32px 0 42px;color:var(--taupe);font-family:Oswald;text-transform:uppercase;letter-spacing:.14em;font-size:.68rem}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* ── Tablet (≤980px) ── */
+@media(max-width:980px){
+  .hero-grid,.manifesto-grid,.split,.case-grid,.about{grid-template-columns:1fr}
+  .copy{border-right:0;border-bottom:1px solid var(--line)}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  .hero-wall{min-height:auto}
+  .case-grid{min-height:auto}
+  .visual{min-height:auto}
+  section{padding:60px 0}
+  .final{padding:72px 0}
+  .manifesto{padding:56px 0}
+  .book-list{grid-template-columns:1fr}
+}
+
+/* ── Mobile (≤560px) ── */
+@media(max-width:560px){
+  .wrap{width:min(var(--max),calc(100% - 24px))}
+  .nav-inner{min-height:160px;justify-content:center}
+  .nav img{width:520px;max-width:96vw}
+  .hero{padding-top:42px}
+  .btns{flex-direction:column}
+  .btn{width:100%}
+  .hero-wall{padding:18px}
+  /* Masonry: single column, natural image height */
+  .masonry{grid-template-columns:1fr;grid-auto-rows:auto;transform:none}
+  .tile,.tile.logo,.tile.a,.tile.b,.tile.c,.tile.d,.tile.e,.tile.f,.caption-card{grid-column:auto;grid-row:auto;min-height:auto}
+  .tile img{height:auto;object-fit:contain}
+  .tile.logo img{object-fit:contain}
+  .caption-card{min-height:120px}
+  /* Gallery: single column */
+  .gallery{grid-template-columns:1fr}
+  .g{width:100%}
+  .g img{height:auto;object-fit:contain}
+  .services{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .copy,.visual{padding:22px}
+  h1{font-size:clamp(4rem,18vw,7rem)}
+  .step h3{margin:20px 0 8px}
+  .step{min-height:auto;padding:18px}
+  .service{min-height:auto}
+  .foot{flex-direction:column;gap:10px;text-align:center}
+  section{padding:44px 0}
+  .final{padding:52px 0}
+  .manifesto{padding:40px 0}
+  .book-list{grid-template-columns:1fr}
+}

@@ -1,0 +1,14 @@
+Manus prompt:
+
+Use the uploaded ZIP as an existing static website project. Do not redesign it. Use index.html and styles.css as the source of truth. Publish the homepage as a static site.
+
+Requirements:
+- Preserve The Krystal Method branding.
+- Preserve the exact copy unless fixing obvious typos.
+- Use the existing folder structure.
+- Fix any broken image paths only.
+- Optimize for mobile but do not change the visual direction.
+- Do not create extra pages tonight.
+- Do not ask for more assets unless a referenced file is missing.
+
+Goal: get a usable live landing page online with minimum credit spend.
