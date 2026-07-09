@@ -77,7 +77,6 @@
             margin-top: 20px;
         }
 
-        /* PHILOSOPHY SECTION */
         .section {
             margin-bottom: 100px;
         }
@@ -122,7 +121,6 @@
             line-height: 1.8;
         }
 
-        /* COLOR PALETTE */
         .color-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -156,7 +154,6 @@
             font-family: monospace;
         }
 
-        /* TYPOGRAPHY */
         .typography-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -193,7 +190,6 @@
             color: var(--muted-taupe);
         }
 
-        /* LOGO SYSTEM */
         .logo-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -227,7 +223,34 @@
             color: var(--muted-taupe);
         }
 
-        /* VISUAL LANGUAGE */
+        .method-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .method-step {
+            background: var(--off-black);
+            border: 1px solid var(--line);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .method-step strong {
+            display: block;
+            color: var(--electric-lime);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .method-step p {
+            font-size: 0.9rem;
+            color: var(--muted-taupe);
+            line-height: 1.5;
+        }
+
         .visual-principles {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -254,54 +277,6 @@
             line-height: 1.6;
         }
 
-        /* BRAND MARK MEANING */
-        .brand-mark-section {
-            background: var(--off-black);
-            border: 1px solid var(--line);
-            padding: 60px;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .brand-mark-section img {
-            width: 150px;
-            margin-bottom: 30px;
-        }
-
-        .brand-mark-section h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-            color: var(--warm-white);
-        }
-
-        .brand-mark-meaning {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .meaning-item {
-            text-align: center;
-        }
-
-        .meaning-item strong {
-            display: block;
-            color: var(--electric-lime);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 8px;
-        }
-
-        .meaning-item p {
-            font-size: 0.9rem;
-            color: var(--muted-taupe);
-        }
-
-        /* VOICE & TONE */
         .voice-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -343,7 +318,6 @@
             margin-right: 10px;
         }
 
-        /* FOOTER */
         footer {
             text-align: center;
             padding-top: 60px;
@@ -367,14 +341,18 @@
             font-style: italic;
         }
 
+        @media (max-width: 900px) {
+            .method-steps { grid-template-columns: repeat(3, 1fr); }
+        }
+
         @media (max-width: 768px) {
             .philosophy-grid,
             .color-grid,
             .typography-section,
             .logo-grid,
             .visual-principles,
-            .brand-mark-meaning,
-            .voice-grid {
+            .voice-grid,
+            .method-steps {
                 grid-template-columns: 1fr;
             }
 
@@ -397,7 +375,6 @@
             <p class="tagline">"The strongest brands aren't invented. They're revealed."</p>
         </header>
 
-        <!-- PHILOSOPHY -->
         <section class="section">
             <h2 class="section-title">Philosophy</h2>
             <div class="philosophy-grid">
@@ -412,7 +389,6 @@
             </div>
         </section>
 
-        <!-- COLOR PALETTE -->
         <section class="section">
             <h2 class="section-title">Color Palette</h2>
             <div class="color-grid">
@@ -467,7 +443,6 @@
             </div>
         </section>
 
-        <!-- TYPOGRAPHY -->
         <section class="section">
             <h2 class="section-title">Typography</h2>
             <div class="typography-section">
@@ -483,14 +458,9 @@
             </div>
         </section>
 
-        <!-- LOGO SYSTEM -->
         <section class="section">
             <h2 class="section-title">Logo System</h2>
             <div class="logo-grid">
-                <div class="logo-item">
-                    <img src="assets/logos/brand-mark-FINAL.png" alt="Brand Mark">
-                    <p class="logo-label">Brand Mark</p>
-                </div>
                 <div class="logo-item">
                     <img src="assets/logos/primary-logo-LIME-STAR.png" alt="Primary Logo">
                     <p class="logo-label">Primary Logo</p>
@@ -499,34 +469,39 @@
                     <img src="assets/logos/alternate-logo-LIME-STAR.png" alt="Alternate Logo">
                     <p class="logo-label">Alternate Logo</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- BRAND MARK MEANING -->
-        <section class="section">
-            <div class="brand-mark-section">
-                <img src="assets/logos/brand-mark-FINAL.png" alt="The Eight-Point Star">
-                <h3>The Eight-Point Star</h3>
-                <p style="color: var(--muted-taupe); font-size: 1rem; margin-bottom: 30px;">The core symbol of The Krystal Method</p>
-                <div class="brand-mark-meaning">
-                    <div class="meaning-item">
-                        <strong>Discovery</strong>
-                        <p>Uncovering what already makes a brand compelling</p>
-                    </div>
-                    <div class="meaning-item">
-                        <strong>Alignment</strong>
-                        <p>Building systems that express that truth consistently</p>
-                    </div>
-                    <div class="meaning-item">
-                        <strong>Recognition</strong>
-                        <p>Creating identities that feel inevitable and authentic</p>
-                    </div>
+                <div class="logo-item">
+                    <img src="assets/logos/brand-mark-FINAL.png" alt="Brand Mark">
+                    <p class="logo-label">Brand Mark</p>
                 </div>
-                <p style="color: var(--dim-taupe); font-size: 0.9rem; margin-top: 40px; text-transform: uppercase; letter-spacing: 0.1em;">An accent. Never the hero. Never oversized.</p>
             </div>
         </section>
 
-        <!-- VISUAL LANGUAGE -->
+        <section class="section">
+            <h2 class="section-title">The 5 Steps of TKM</h2>
+            <div class="method-steps">
+                <div class="method-step">
+                    <strong>01. Discover</strong>
+                    <p>Collect reality. Audience reactions. History. Assets. Goals. Personality. Instinct.</p>
+                </div>
+                <div class="method-step">
+                    <strong>02. Decode</strong>
+                    <p>Find the pattern. What repeats? What resonates? What feels inevitable?</p>
+                </div>
+                <div class="method-step">
+                    <strong>03. Define</strong>
+                    <p>Name the world. Voice. Positioning. Visual direction. Rules. Boundaries. What belongs. What doesn't.</p>
+                </div>
+                <div class="method-step">
+                    <strong>04. Build</strong>
+                    <p>Create the complete ecosystem. Identity. Content. Landing pages. Websites. EPKs. Books. Publishing worlds. Templates. AI workflows. Creative operations. SOPs. Systems.</p>
+                </div>
+                <div class="method-step">
+                    <strong>05. Evolve</strong>
+                    <p>Improve using evidence. Refine. Never drift away from the core truth.</p>
+                </div>
+            </div>
+        </section>
+
         <section class="section">
             <h2 class="section-title">Visual Language</h2>
             <div class="visual-principles">
@@ -545,7 +520,6 @@
             </div>
         </section>
 
-        <!-- VOICE & TONE -->
         <section class="section">
             <h2 class="section-title">Voice & Tone</h2>
             <div class="voice-grid">
@@ -584,7 +558,6 @@
             </div>
         </section>
 
-        <!-- SIGNATURE STATEMENTS -->
         <section class="section">
             <h2 class="section-title">Signature Statements</h2>
             <div class="philosophy-grid">

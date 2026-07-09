@@ -17,7 +17,6 @@
             --royal-purple: #3A0CA3;
             --line: rgba(240, 234, 223, 0.1);
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: var(--black);
@@ -34,18 +33,14 @@
             flex-direction: column;
             align-items: center;
         }
-
         .container { width: 100%; max-width: 800px; }
         header { text-align: center; margin-bottom: 80px; }
         .logo { width: 60px; margin-bottom: 24px; }
         h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1; margin-bottom: 12px; }
         p.subtitle { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--electric-lime); }
-
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-
         .section-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted-taupe); margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
-        
         .link-card {
             background: var(--off-black);
             border: 1px solid var(--line);
@@ -65,7 +60,6 @@
         .link-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 500; margin-bottom: 8px; color: var(--warm-white); }
         .link-card p { font-size: 0.85rem; color: var(--muted-taupe); line-height: 1.4; }
         .link-card .arrow { position: absolute; top: 32px; right: 32px; color: var(--electric-lime); font-size: 1.2rem; opacity: 0.5; }
-
         footer { margin-top: auto; padding-top: 80px; text-align: center; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted-taupe); }
     </style>
 </head>
@@ -76,7 +70,6 @@
             <h1>The Vault</h1>
             <p class="subtitle">The Krystal Method Command Center</p>
         </header>
-
         <div class="grid">
             <div class="column">
                 <h2 class="section-title">The Public Face</h2>
@@ -90,24 +83,28 @@
                     <h3>Discovery Form</h3>
                     <p>The entry point for new leads. Uncovering the common thread.</p>
                 </a>
-                <a href="onboarding.html" class="link-card">
+                <a href="onboarding.html" class="link-card" style="margin-bottom: 20px;">
                     <div class="arrow">→</div>
                     <h3>Client Onboarding</h3>
                     <p>The kickoff flow. Asset collection and project start.</p>
                 </a>
+                <a href="brand-board.html" class="link-card">
+                    <div class="arrow">→</div>
+                    <h3>Brand Board</h3>
+                    <p>The definitive visual and philosophical guide for TKM.</p>
+                </a>
             </div>
-
             <div class="column">
-                <h2 class="section-title">The Internal Engine</h2>
+                <h2 class="section-title">Operational Tools</h2>
                 <a href="calendar.html" class="link-card" style="margin-bottom: 20px;">
                     <div class="arrow">→</div>
                     <h3>Social Cockpit</h3>
-                    <p>The No-App CRM and social workflow command center.</p>
+                    <p>Google Calendar-based business management system.</p>
                 </a>
                 <a href="ops.html" class="link-card" style="margin-bottom: 20px;">
                     <div class="arrow">→</div>
-                    <h3>Ops Command</h3>
-                    <p>Internal tools, scripts, and administrative systems.</p>
+                    <h3>Ops Manual</h3>
+                    <p>Internal documentation, SOPs, and system architecture.</p>
                 </a>
                 <a href="discovery-url-builder.html" class="link-card">
                     <div class="arrow">→</div>
@@ -116,9 +113,8 @@
                 </a>
             </div>
         </div>
-
         <footer>
-            The strongest brands aren't invented. They're revealed.
+            <p>© 2026 The Krystal Method. The strongest brands aren't invented. They're revealed.</p>
         </footer>
     </div>
 </body>
