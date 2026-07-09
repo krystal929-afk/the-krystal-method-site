@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Onboarding — The Krystal Method</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --black: #050505;
+            --off: #0b0b10;
+            --panel: #111118;
+            --bone: #f4eadf;
+            --taupe: #b8b0a3;
+            --lime: #c6ff2e;
+            --royal-purple: #3A0CA3;
+            --line: rgba(244, 234, 223, .15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--bone);
+            font-family: 'Oswald', sans-serif;
+            line-height: 1.6;
+            padding: 60px 20px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 84% 5%, rgba(58, 12, 163, .25), transparent 30rem), radial-gradient(circle at 8% 34%, rgba(58, 12, 163, .2), transparent 36rem), radial-gradient(circle at 92% 92%, rgba(198, 255, 46, .05), transparent 30rem);
+        }
+
+        .wrap {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            max-width: 280px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--bone);
+            line-height: 1;
+        }
+
+        p.lead {
+            font-size: 1.1rem;
+            color: var(--taupe);
+            margin-bottom: 40px;
+        }
+
+        .step {
+            margin-bottom: 40px;
+            border-left: 2px solid var(--lime);
+            padding-left: 24px;
+        }
+
+        .step-num {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--lime);
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-family: Oswald;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 16px;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--taupe);
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--lime);
+            font-weight: 700;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--lime);
+            color: var(--black);
+            padding: 16px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            font-family: Oswald;
+        }
+
+        .footer {
+            margin-top: 80px;
+            border-top: 1px solid var(--line);
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: var(--taupe);
+            text-align: center;
+            font-family: Oswald;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <img src="assets/logos/logo_horizontal_white.png" alt="TKM Logo" class="logo" />
+
+        <h1>Welcome to the Intensive.</h1>
+        <p class="lead">We're about to uncover what's always been true about you, then build the systems to express it. In 72 hours. To start the clock, I need three things from you.</p>
+
+        <div class="step">
+            <div class="step-num">Step 01</div>
+            <h2>The Fuel (Assets)</h2>
+            <p><strong>This is the most important step.</strong> Upload everything you have: logos, fonts, brand guides, existing photos, and any mood boards you've created. These are the pieces we'll examine to find the common thread.</p>
+            <div class="card">
+                <ul>
+                    <li>Vector logos (.svg or .ai)</li>
+                    <li>Current brand colors/hex codes</li>
+                    <li>High-res headshots or product photos</li>
+                    <li>Links to 3 brands you admire</li>
+                </ul>
+                <a href="https://driveuploader.com/upload/0gfgLESs2r/" target="_blank" class="cta-btn">Open Secure Uploader</a>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-num">Step 02</div>
+            <h2>The Discovery</h2>
+            <p>Fill out the Discovery Form. This is where I uncover who you've always been—the patterns, the truth, the common thread that makes you unmistakably you.</p>
+            <a href="discovery.html" class="cta-btn">Fill out Discovery Form</a>
+        </div>
+
+        <div class="step">
+            <div class="step-num">Step 03</div>
+            <h2>The Decode</h2>
+            <p>Once assets are in and the form is done, we have a 20-minute kickoff call to align on what we've uncovered. This is where we reveal the common thread and start the 72-hour clock.</p>
+            <a href="https://calendly.com/krystal-method" target="_blank" class="cta-btn">Schedule Kickoff Call</a>
+        </div>
+
+        <div class="footer">
+            <p>The Krystal Method · Krystal Alvarez<br />The strongest brands aren't invented. They're revealed.</p>
+        </div>
+    </div>
+
+</body>
+</html>

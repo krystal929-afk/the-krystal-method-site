@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Discovery Link Builder — The Krystal Method</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #050505;
+  --off: #0b0b10;
+  --panel: #111118;
+  --bone: #f4eadf;
+  --taupe: #b8b0a3;
+  --lime: #c6ff2e;
+  --royal-purple: #3A0CA3;
+  --line: rgba(244,234,223,.15);
+  --greenline: rgba(198,255,46,.3);
+  --base-url: "https://krystal929-afk.github.io/the-krystal-method-site/discovery.html";
+}
+body {
+  background: var(--off);
+  color: var(--bone);
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 40px 16px 80px;
+}
+.wrap { max-width: 680px; margin: 0 auto; }
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 500;
+  letter-spacing: -.03em;
+  color: var(--bone);
+  margin-bottom: 6px;
+}
+h1 em { font-style: normal; color: var(--lime); }
+.sub { color: var(--taupe); font-size: .9rem; margin-bottom: 36px; }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin-bottom: 20px;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--lime);
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--taupe);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 5px;
+  margin-top: 14px;
+}
+label:first-of-type { margin-top: 0; }
+
+.hint {
+  font-size: .78rem;
+  color: #6b6460;
+  margin-bottom: 6px;
+  font-style: italic;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  background: #0b0b10;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--bone);
+  font-family: 'Oswald', sans-serif;
+  font-size: .9rem;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color .2s;
+}
+input[type="text"]:focus, textarea:focus {
+  border-color: var(--greenline);
+}
+textarea { resize: vertical; min-height: 60px; }
+
+/* Output */
+.output-section { margin-top: 28px; }
+.output-label {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--lime);
+  margin-bottom: 10px;
+}
+.url-box {
+  background: #0b0b10;
+  border: 1px solid var(--greenline);
+  border-radius: 6px;
+  padding: 14px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: .78rem;
+  color: var(--bone);
+  word-break: break-all;
+  line-height: 1.6;
+  min-height: 52px;
+  margin-bottom: 12px;
+}
+.url-box .base { color: var(--taupe); }
+.url-box .params { color: var(--lime); }
+
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+button {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+button:hover { opacity: .88; transform: translateY(-1px); }
+.btn-copy { background: var(--lime); color: #050505; }
+.btn-preview { background: transparent; border: 1px solid var(--greenline); color: var(--lime); }
+.btn-reset { background: transparent; border: 1px solid var(--line); color: var(--taupe); }
+
+.copied-msg {
+  font-size: .78rem;
+  color: var(--lime);
+  opacity: 0;
+  transition: opacity .3s;
+  align-self: center;
+}
+.copied-msg.show { opacity: 1; }
+
+/* Reference table */
+.ref-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.ref-table th, .ref-table td {
+  text-align: left;
+  padding: 8px 10px;
+  font-size: .82rem;
+  border-bottom: 1px solid var(--line);
+}
+.ref-table th {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--lime);
+  background: #0b0b10;
+}
+.ref-table td:first-child {
+  font-family: 'Courier New', monospace;
+  color: var(--lime);
+  white-space: nowrap;
+}
+.ref-table td:last-child { color: var(--taupe); }
+
+.example-block {
+  background: #0b0b10;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-family: 'Courier New', monospace;
+  font-size: .76rem;
+  color: var(--taupe);
+  word-break: break-all;
+  line-height: 1.7;
+  margin-top: 10px;
+}
+.example-block .hl { color: var(--lime); }
+
+@media (max-width: 500px) {
+  .btn-row { flex-direction: column; }
+  button { width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Discovery Link <em>Builder</em></h1>
+  <p class="sub">Fill in what you know about the client. The URL builds itself. Copy and paste into your DM or email.</p>
+
+  <div class="card">
+    <div class="card-title">Client Details</div>
+
+    <label for="f-client">Client Name</label>
+    <div class="hint">First name or handle — appears in the form header chip</div>
+    <input type="text" id="f-client" placeholder="e.g. Sarah" />
+
+    <label for="f-biz">Business Description</label>
+    <div class="hint">One line — what they do</div>
+    <input type="text" id="f-biz" placeholder="e.g. Handmade jewelry brand" />
+
+    <label for="f-audience">Primary Audience</label>
+    <div class="hint">Who they serve</div>
+    <input type="text" id="f-audience" placeholder="e.g. Women 25–40 interested in minimalist style" />
+
+    <label for="f-stage">Current Stage</label>
+    <div class="hint">Where they are right now</div>
+    <input type="text" id="f-stage" placeholder="e.g. Growing, Early, Established" />
+
+    <label for="f-has">What They Already Have</label>
+    <div class="hint">Comma-separated list</div>
+    <input type="text" id="f-has" placeholder="e.g. Instagram presence, logo, email list" />
+
+    <label for="f-needs">Why They're Here</label>
+    <div class="hint">Comma-separated list of pain points or goals</div>
+    <textarea id="f-needs" placeholder="e.g. Clearer brand voice, content system that doesn't fall apart, stronger positioning"></textarea>
+
+  </div>
+
+  <div class="output-section">
+    <div class="output-label">Your Custom Link</div>
+    <div class="url-box" id="url-output">
+      <span class="base">https://krystal929-afk.github.io/the-krystal-method-site/discovery.html</span>
+    </div>
+    <div class="btn-row">
+      <button type="button" class="btn-copy" id="btn-copy">Copy Link</button>
+      <button type="button" class="btn-preview" id="btn-preview">Preview in New Tab</button>
+      <button type="button" class="btn-reset" id="btn-reset">Clear</button>
+      <span class="copied-msg" id="copied-msg">Copied!</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:40px;">
+    <div class="card-title">URL Param Reference</div>
+    <table class="ref-table">
+      <thead>
+        <tr><th>Param</th><th>What it fills in</th><th>Example value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>client</td><td>Name chip in the form header</td><td>Sarah</td></tr>
+        <tr><td>biz</td><td>Business description card</td><td>Handmade+jewelry+brand</td></tr>
+        <tr><td>audience</td><td>Primary audience line</td><td>Women+25-40</td></tr>
+        <tr><td>stage</td><td>Current stage line</td><td>Growing</td></tr>
+        <tr><td>has</td><td>What they already have (comma list)</td><td>Instagram,logo,email+list</td></tr>
+        <tr><td>needs</td><td>Why they're here (comma list)</td><td>Brand+voice,content+system</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.8rem;color:#6b6460;margin-top:12px;">Use <code style="color:var(--lime)">+</code> for spaces within a value. Use commas to separate list items. Any param you leave out falls back to a sensible default.</p>
+
+    <div class="card-title" style="margin-top:24px;">Full Example</div>
+    <div class="example-block">
+      https://krystal929-afk.github.io/the-krystal-method-site/discovery.html<span class="hl">?client=Sarah&amp;biz=Handmade+jewelry+brand&amp;audience=Women+25-40&amp;stage=Growing&amp;has=Instagram,logo&amp;needs=Brand+voice,content+system</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const BASE = 'https://krystal929-afk.github.io/the-krystal-method-site/discovery.html';
+
+function encode(val) {
+  return encodeURIComponent(val.trim()).replace(/%20/g, '+');
+}
+
+function buildURL() {
+  const client   = document.getElementById('f-client').value.trim();
+  const biz      = document.getElementById('f-biz').value.trim();
+  const audience = document.getElementById('f-audience').value.trim();
+  const stage    = document.getElementById('f-stage').value.trim();
+  const has      = document.getElementById('f-has').value.trim();
+  const needs    = document.getElementById('f-needs').value.trim();
+
+  const params = [];
+  if (client)   params.push('client='   + encode(client));
+  if (biz)      params.push('biz='      + encode(biz));
+  if (audience) params.push('audience=' + encode(audience));
+  if (stage)    params.push('stage='    + encode(stage));
+  if (has)      params.push('has='      + encode(has));
+  if (needs)    params.push('needs='    + encode(needs));
+
+  const box = document.getElementById('url-output');
+  if (params.length === 0) {
+    box.innerHTML = '<span class="base">' + BASE + '</span>';
+  } else {
+    box.innerHTML = '<span class="base">' + BASE + '</span><span class="params">?' + params.join('&amp;') + '</span>';
+  }
+}
+
+function getRawURL() {
+  const client   = document.getElementById('f-client').value.trim();
+  const biz      = document.getElementById('f-biz').value.trim();
+  const audience = document.getElementById('f-audience').value.trim();
+  const stage    = document.getElementById('f-stage').value.trim();
+  const has      = document.getElementById('f-has').value.trim();
+  const needs    = document.getElementById('f-needs').value.trim();
+
+  const params = [];
+  if (client)   params.push('client='   + encode(client));
+  if (biz)      params.push('biz='      + encode(biz));
+  if (audience) params.push('audience=' + encode(audience));
+  if (stage)    params.push('stage='    + encode(stage));
+  if (has)      params.push('has='      + encode(has));
+  if (needs)    params.push('needs='    + encode(needs));
+
+  return params.length ? BASE + '?' + params.join('&') : BASE;
+}
+
+function copyURL() {
+  navigator.clipboard.writeText(getRawURL()).then(() => {
+    const msg = document.getElementById('copied-msg');
+    msg.classList.add('show');
+    setTimeout(() => msg.classList.remove('show'), 2000);
+  });
+}
+
+function previewURL() {
+  window.open(getRawURL(), '_blank');
+}
+
+function resetForm() {
+  ['f-client','f-biz','f-audience','f-stage','f-has','f-needs'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  buildURL();
+}
+
+// Event Listeners
+document.getElementById('btn-copy').addEventListener('click', copyURL);
+document.getElementById('btn-preview').addEventListener('click', previewURL);
+document.getElementById('btn-reset').addEventListener('click', resetForm);
+
+// Live update
+['f-client','f-biz','f-audience','f-stage','f-has','f-needs'].forEach(id => {
+  document.getElementById(id).addEventListener('input', buildURL);
+});
+</script>
+</body>
+</html>

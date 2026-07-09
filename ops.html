@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>TKM Mobile Ops</title>
+<style>
+:root {
+  --black: #050505;
+  --off: #0b0b10;
+  --panel: #111118;
+  --bone: #f4eadf;
+  --taupe: #b8b0a3;
+  --lime: #c6ff2e;
+  --royal-purple: #3A0CA3;
+  --line: rgba(244,234,223,.15);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body {
+  background: var(--black);
+  color: var(--bone);
+  font-family: 'Oswald', sans-serif;
+  padding: 20px 16px 100px;
+}
+.header { margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 20px; text-align: center; }
+.logo { max-width: 180px; height: auto; margin-bottom: 12px; }
+h1 { font-size: 1rem; font-weight: 700; color: var(--lime); text-transform: uppercase; letter-spacing: 0.15em; }
+.sub { font-size: 0.75rem; color: var(--taupe); margin-top: 4px; }
+
+.section { margin-bottom: 32px; }
+.section-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--lime); margin-bottom: 12px; font-weight: 700; border-left: 2px solid var(--lime); padding-left: 10px; }
+
+/* Buttons */
+.btn {
+  display: block;
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 16px;
+  border-radius: 12px;
+  color: var(--bone);
+  text-align: left;
+  margin-bottom: 12px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.btn:active { background: #1a1a26; }
+.btn-primary { border-color: var(--lime); color: var(--lime); font-weight: 600; }
+.btn-label { display: block; font-size: 0.65rem; text-transform: uppercase; color: var(--taupe); margin-bottom: 4px; }
+
+/* Content Cards */
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+.card p { font-size: 0.85rem; line-height: 1.5; color: var(--bone); margin-bottom: 8px; }
+.card ul { list-style: none; margin-top: 8px; }
+.card li { font-size: 0.85rem; margin-bottom: 8px; padding-left: 18px; position: relative; color: var(--taupe); }
+.card li::before { content: "→"; position: absolute; left: 0; color: var(--lime); }
+.card strong { color: var(--bone); }
+
+/* Quick Log Form */
+input, textarea, select {
+  width: 100%;
+  background: var(--black);
+  border: 1px solid var(--line);
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--bone);
+  margin-bottom: 12px;
+  font-size: 1rem;
+  outline: none;
+}
+input:focus { border-color: var(--lime); }
+.submit-btn {
+  background: var(--lime);
+  color: var(--black);
+  border: none;
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--lime);
+  color: var(--black);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="assets/logos/logo_horizontal_white.png" alt="TKM Logo" class="logo" />
+  <h1>The Krystal Method Ops</h1>
+  <p class="sub">Revealing authentic identity through creative systems.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Daily Battle Plan</div>
+  <div class="card">
+    <ul>
+      <li><strong>20</strong> New Leads Scraped (Apify)</li>
+      <li><strong>10</strong> DMs Sent</li>
+      <li><strong>10</strong> Emails Sent</li>
+      <li><strong>5</strong> Follow-ups</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Prospecting Engine</div>
+  <a href="https://console.apify.com/" target="_blank" class="btn btn-primary">
+    <span class="btn-label">Apify</span>
+    Open Apify Console
+  </a>
+  <div class="card">
+    <p><strong>Recommended Actors:</strong></p>
+    <ul>
+      <li>Instagram Leads Generator</li>
+      <li>Instagram Email Scraper</li>
+      <li>Instagram Scraper (Competitors)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Outreach Scripts</div>
+  
+  <button class="btn" onclick="copyScript('initial')">
+    <span class="btn-label">Step 1: The Hook (DM)</span>
+    "Hi [Name], love the energy of your page..."
+  </button>
+
+  <button class="btn" onclick="copyScript('followup')">
+    <span class="btn-label">Step 2: The Follow-Up</span>
+    "Hey [Name]! Just checking back..."
+  </button>
+
+  <button class="btn" onclick="copyScript('audit')">
+    <span class="btn-label">Step 3: Audit Delivery</span>
+    "Here is that audit for you..."
+  </button>
+
+  <button class="btn" onclick="copyScript('delton')">
+    <span class="btn-label">The DJ Delton Pivot</span>
+    "Hi [Name], I'm Krystal, manager for DJ Delton..."
+  </button>
+</div>
+
+<div class="section">
+  <div class="section-title">Email Templates</div>
+  
+  <button class="btn" onclick="copyScript('email_cold')">
+    <span class="btn-label">Email: Cold Pitch</span>
+    "Subject: Quick idea for [Business Name] branding..."
+  </button>
+
+  <button class="btn" onclick="copyScript('email_followup')">
+    <span class="btn-label">Email: Follow-Up</span>
+    "Subject: Re: Quick brand audit for [Business Name]..."
+  </button>
+
+  <button class="btn" onclick="copyScript('email_delton')">
+    <span class="btn-label">Email: DJ Delton Pitch</span>
+    "Subject: Professional DJ for [Venue/Event Name]..."
+  </button>
+</div>
+
+<div class="section">
+  <div class="section-title">Quick-Log Prospect</div>
+  <div class="card">
+    <form id="quick-log" action="https://formspree.io/f/mzdlowbo" method="POST">
+      <input type="hidden" name="_subject" value="CRM LOG: New Prospect Added" />
+      <input type="text" name="prospect_name" placeholder="Name or Handle" required />
+      <select name="platform">
+        <option value="Instagram">Instagram</option>
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="Email">Email</option>
+        <option value="Other">Other</option>
+      </select>
+      <textarea name="notes" placeholder="Quick notes (Vibe, what you liked)"></textarea>
+      <button type="submit" class="submit-btn">Log to CRM</button>
+    </form>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Focus Rules</div>
+  <div class="card">
+    <ul>
+      <li><strong>Outreach First:</strong> No site edits until outreach is done.</li>
+      <li><strong>15-Min Audits:</strong> Record, ship, move on.</li>
+      <li><strong>No Deposit, No Work:</strong> 50% upfront always.</li>
+      <li><strong>CRM Discipline:</strong> If it's not logged, it didn't happen.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Brand Philosophy</div>
+  <div class="card">
+    <p><em>"AI accelerates the work. Judgment is the product."</em></p>
+    <p>Build brands that feel unmistakably human.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Loom Teleprompter</div>
+  <div class="card">
+    <p><strong>1. Intro (30s):</strong> Who you are + what you love about their page.</p>
+    <p><strong>2. The Gap (2m):</strong> Where the disconnect is between their message and visuals.</p>
+    <p><strong>3. The Insight (5m):</strong> One specific "Krystal Method" fix they can do now.</p>
+    <p><strong>4. The Close (2m):</strong> Brainstorm call + Discovery link.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Brand Vault</div>
+  <div class="card">
+    <p><span style="color:var(--lime)">●</span> <strong>Lime:</strong> #c6ff2e</p>
+    <p><span style="color:var(--violet)">●</span> <strong>Violet:</strong> #7a2cff</p>
+    <p><span style="color:var(--bone)">●</span> <strong>Bone:</strong> #f4eadf</p>
+    <p><strong>Type:</strong> Cormorant (Serif), Oswald (Header), Inter (Body)</p>
+  </div>
+  <button class="btn" onclick="copyText('#c6ff2e')">Copy Lime Hex</button>
+  <button class="btn" onclick="copyText('#7a2cff')">Copy Violet Hex</button>
+</div>
+
+<div class="section">
+  <div class="section-title">Client Management</div>
+  <a href="discovery-url-builder.html" class="btn btn-primary">
+    <span class="btn-label">Tool</span>
+    Discovery Link Builder
+  </a>
+  <a href="onboarding.html" class="btn">
+    <span class="btn-label">Internal</span>
+    Client Onboarding Portal
+  </a>
+  <a href="https://trello.com" class="btn">
+    <span class="btn-label">External</span>
+    Open Trello Board
+  </a>
+</div>
+
+<div id="toast">Copied to Clipboard!</div>
+
+<script>
+const scripts = {
+  initial: `Hi [Name], love the energy of your page. I noticed a few branding opportunities that could help you stand out even more. I’d be happy to record a quick 5-minute audit for you—no pressure. Want me to send it over?`,
+  followup: `Hey [Name]! Just checking back to see if you saw my note about the brand audit. I’ve got a slot open this afternoon to record a few. No pressure at all, just wanted to keep it on your radar!`,
+  audit: `Here is that audit for you, [Name]! [LOOM_LINK]. If this resonates and you want to tighten things up in 72 hours, fill this out so I can see the full picture: https://krystal929-afk.github.io/the-krystal-method-site/discovery.html?client=[NAME]. Let's brainstorm!`,
+  delton: `Hi [Name], I'm Krystal, manager for DJ Delton. I know how hard it is to find reliable, professional DJs for weddings and events who actually understand the 'vanilla' vibe without being boring. Delton is our mainstream flagship—professional, high-energy, and zero ego. Would love to be on your list for any upcoming dates you're booking. Here's his clean EPK: https://krystal929-afk.github.io/the-krystal-method-site/`,
+  email_cold: `Subject: Quick idea for [Business Name] branding\n\nHi [Name], I’m Krystal, a Creative Systems Architect. I’ve been following your work and noticed a few ways your brand messaging could work harder for you. I’ve put together a few thoughts—happy to send over a quick video audit if you're interested?`,
+  email_followup: `Subject: Re: Quick brand audit for [Business Name]\n\nHi [Name],\n\nJust wanted to bubble this up to the top of your inbox. \n\nI know how busy things get, but I’d still love to send over those ideas for [Business Name] if you’re interested. \n\nIf not, no worries at all—I’ll leave you to it!\n\nBest,\n\nKrystal`,
+  email_delton: `Subject: Professional DJ for [Venue/Event Name] — DJ Delton\n\nHi [Name],\n\nI’m Krystal, manager for DJ Delton. \n\nI’m reaching out because I know how difficult it can be to find a DJ who is both high-energy and completely professional for [Weddings/Corporate Events/Mainstream bookings].\n\nDelton is our mainstream flagship—he specializes in open-format sets that keep the floor moving without the ego or "underground" baggage. He’s reliable, professional, and built for [Season/Type of event].\n\nYou can view his full EPK and brand world here: https://krystal929-afk.github.io/the-krystal-method-site/\n\nDo you have any openings in your [Season] calendar where Delton might be a fit?\n\nBest,\n\nKrystal\nManager | DJ Delton`
+};
+
+function copyScript(id) {
+  const text = scripts[id];
+  copyText(text);
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const toast = document.getElementById('toast');
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 2000);
+  });
+}
+
+// Handle form submission
+document.getElementById('quick-log').addEventListener('submit', function(e) {
+  const btn = this.querySelector('.submit-btn');
+  btn.textContent = 'LOGGING...';
+  btn.disabled = true;
+});
+</script>
+
+</body>
+</html>

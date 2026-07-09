@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>TKM Social Cockpit</title>
+<style>
+:root {
+  --black: #050505;
+  --panel: #111118;
+  --bone: #f4eadf;
+  --lime: #c6ff2e;
+  --purple: #3a0ca3;
+  --line: rgba(244,234,223,.15);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--black);
+  color: var(--bone);
+  font-family: 'Oswald', sans-serif;
+  padding: 20px 16px;
+}
+.header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+.logo { max-width: 150px; margin-bottom: 10px; }
+h1 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--lime); }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+.label { font-size: 0.65rem; text-transform: uppercase; color: var(--lime); letter-spacing: 0.1em; margin-bottom: 8px; display: block; }
+h2 { font-size: 1.2rem; margin-bottom: 15px; }
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: var(--lime);
+  color: var(--black);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.step { margin-bottom: 15px; font-size: 0.9rem; color: rgba(244,234,223,0.8); }
+.step strong { color: var(--bone); display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="assets/logos/logo_primary_sharp.png" alt="TKM Logo" class="logo" />
+  <h1>The Social Cockpit</h1>
+  <p style="font-size: 0.85rem; color: rgba(244,234,223,0.6); margin-top: 10px;">Run your entire business from your Google Calendar. The strongest brands aren't invented. They're revealed.</p>
+</div>
+
+<div class="card">
+  <span class="label">Foundation</span>
+  <h2>The "No-App" Calendar System</h2>
+  <p class="step">Open Google Calendar on your phone. This is your new CRM, Social Planner, and business command center. Everything that matters lives here. One source of truth.</p>
+  <a href="https://calendar.google.com" target="_blank" class="btn">Open Google Calendar</a>
+</div>
+
+<div class="card">
+  <span class="label">System 1</span>
+  <h2>The CRM Workflow</h2>
+  <p style="margin-bottom: 15px; font-size: 0.9rem; color: rgba(244,234,223,0.8);">Track leads and clients by their status. Use color-coding and event titles to manage your pipeline without leaving the calendar.</p>
+  <div class="step">
+    <strong>Log a Lead:</strong> Create an "All-Day Event" on their follow-up date.
+  </div>
+  <div class="step">
+    <strong>Event Title Format:</strong> [Status] Client Name (e.g., [AUDIT] Sarah, [DISCOVERY] Marcus, [INTENSIVE] Alex)
+  </div>
+  <div class="step">
+    <strong>In the Description:</strong> Paste their Instagram link, email, and key notes about the project.
+  </div>
+  <div class="step">
+    <strong>Color Code:</strong> Use calendar colors for status (Red = Hot Lead, Yellow = Warm, Green = Cold, Blue = Past Client)
+  </div>
+</div>
+
+<div class="card">
+  <span class="label">System 2</span>
+  <h2>The Social Workflow</h2>
+  <p style="margin-bottom: 15px; font-size: 0.9rem; color: rgba(244,234,223,0.8);">Plan and automate your content directly from the calendar. Every post idea becomes a calendar event that triggers automation.</p>
+  <div class="step">
+    <strong>Create Content Events:</strong> Make a 15-minute event for each post idea.
+  </div>
+  <div class="step">
+    <strong>Event Title Format:</strong> [POST] Caption or idea (e.g., [POST] Behind-the-scenes studio setup)
+  </div>
+  <div class="step">
+    <strong>Automation via Make.com:</strong> When Make.com sees a "[POST]" event, it automatically posts to Instagram and Facebook at the scheduled time.
+  </div>
+  <a href="https://www.make.com" target="_blank" class="btn" style="background:var(--purple); color:white;">Setup Make.com Automation</a>
+</div>
+
+<div class="card">
+  <span class="label">The Operating System</span>
+  <p class="step"><strong>Rule 1:</strong> If it's in the calendar, it's real. If it's not in the calendar, it doesn't exist.</p>
+  <p class="step"><strong>Rule 2:</strong> Check your phone every morning. Do the red items first.</p>
+  <p class="step"><strong>Rule 3:</strong> Every client, every project, every post lives as a calendar event. One source of truth.</p>
+  <p class="step"><strong>Rule 4:</strong> The calendar is your business. Treat it like it.</p>
+  <p class="step"><strong>Rule 5:</strong> Simplicity is power. No apps. No complexity. Just the calendar.</p>
+</div>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); text-align: center; font-size: 0.8rem; color: rgba(244,234,223,0.6);">
+  <p>The Krystal Method · Krystal Alvarez<br />The strongest brands aren't invented. They're revealed.</p>
+</div>
+
+</body>
+</html>

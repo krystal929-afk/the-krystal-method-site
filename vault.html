@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vault | TKM Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #050505;
+            --off-black: #0A0A0D;
+            --warm-white: #F0EADF;
+            --muted-taupe: #B6B0A7;
+            --electric-lime: #C6FF2E;
+            --royal-purple: #3A0CA3;
+            --line: rgba(240, 234, 223, 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--black);
+            color: var(--warm-white);
+            font-family: 'Oswald', sans-serif;
+            line-height: 1.6;
+            padding: 60px 20px;
+            background-image: 
+                radial-gradient(circle at 80% 10%, rgba(58, 12, 163, 0.2), transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(198, 255, 46, 0.05), transparent 40%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container { width: 100%; max-width: 800px; }
+        header { text-align: center; margin-bottom: 80px; }
+        .logo { width: 60px; margin-bottom: 24px; }
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1; margin-bottom: 12px; }
+        p.subtitle { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--electric-lime); }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+        .section-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted-taupe); margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+        
+        .link-card {
+            background: var(--off-black);
+            border: 1px solid var(--line);
+            padding: 32px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .link-card:hover {
+            border-color: var(--electric-lime);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(198, 255, 46, 0.1);
+        }
+        .link-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 500; margin-bottom: 8px; color: var(--warm-white); }
+        .link-card p { font-size: 0.85rem; color: var(--muted-taupe); line-height: 1.4; }
+        .link-card .arrow { position: absolute; top: 32px; right: 32px; color: var(--electric-lime); font-size: 1.2rem; opacity: 0.5; }
+
+        footer { margin-top: auto; padding-top: 80px; text-align: center; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted-taupe); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="assets/logos/logo_monogram_sharp.png" alt="TKM Star" class="logo">
+            <h1>The Vault</h1>
+            <p class="subtitle">The Krystal Method Command Center</p>
+        </header>
+
+        <div class="grid">
+            <div class="column">
+                <h2 class="section-title">The Public Face</h2>
+                <a href="index.html" class="link-card" style="margin-bottom: 20px;">
+                    <div class="arrow">→</div>
+                    <h3>Landing Page</h3>
+                    <p>The front door. Manifesto, evidence, and flagship offers.</p>
+                </a>
+                <a href="discovery.html" class="link-card" style="margin-bottom: 20px;">
+                    <div class="arrow">→</div>
+                    <h3>Discovery Form</h3>
+                    <p>The entry point for new leads. Uncovering the common thread.</p>
+                </a>
+                <a href="onboarding.html" class="link-card">
+                    <div class="arrow">→</div>
+                    <h3>Client Onboarding</h3>
+                    <p>The kickoff flow. Asset collection and project start.</p>
+                </a>
+            </div>
+
+            <div class="column">
+                <h2 class="section-title">The Internal Engine</h2>
+                <a href="calendar.html" class="link-card" style="margin-bottom: 20px;">
+                    <div class="arrow">→</div>
+                    <h3>Social Cockpit</h3>
+                    <p>The No-App CRM and social workflow command center.</p>
+                </a>
+                <a href="ops.html" class="link-card" style="margin-bottom: 20px;">
+                    <div class="arrow">→</div>
+                    <h3>Ops Command</h3>
+                    <p>Internal tools, scripts, and administrative systems.</p>
+                </a>
+                <a href="discovery-url-builder.html" class="link-card">
+                    <div class="arrow">→</div>
+                    <h3>Link Builder</h3>
+                    <p>Generate pre-filled discovery links for warm leads.</p>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            The strongest brands aren't invented. They're revealed.
+        </footer>
+    </div>
+</body>
+</html>
