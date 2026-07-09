@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Krystal Method — Brand Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #050505;
+            --off-black: #0A0A0D;
+            --warm-white: #F0EADF;
+            --muted-taupe: #B6B0A7;
+            --dim-taupe: #77716B;
+            --electric-lime: #C6FF2E;
+            --royal-purple: #3A0CA3;
+            --paper: #EEE8DB;
+            --line: rgba(240, 234, 223, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--warm-white);
+            font-family: 'Oswald', sans-serif;
+            line-height: 1.6;
+            padding: 60px 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            border-bottom: 2px solid var(--electric-lime);
+            padding-bottom: 40px;
+        }
+
+        .logo-mark {
+            width: 120px;
+            margin: 0 auto 24px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: var(--warm-white);
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--electric-lime);
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--muted-taupe);
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        /* PHILOSOPHY SECTION */
+        .section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--electric-lime);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .philosophy-card {
+            background: var(--off-black);
+            border: 1px solid var(--line);
+            padding: 40px;
+            position: relative;
+        }
+
+        .philosophy-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--warm-white);
+        }
+
+        .philosophy-card p {
+            font-size: 0.95rem;
+            color: var(--muted-taupe);
+            line-height: 1.8;
+        }
+
+        /* COLOR PALETTE */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .color-swatch {
+            text-align: center;
+        }
+
+        .color-box {
+            width: 100%;
+            aspect-ratio: 1;
+            border: 1px solid var(--line);
+            margin-bottom: 16px;
+            border-radius: 4px;
+        }
+
+        .color-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--warm-white);
+        }
+
+        .color-code {
+            font-size: 0.85rem;
+            color: var(--dim-taupe);
+            font-family: monospace;
+        }
+
+        /* TYPOGRAPHY */
+        .typography-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .type-sample {
+            background: var(--off-black);
+            border: 1px solid var(--line);
+            padding: 40px;
+        }
+
+        .type-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--electric-lime);
+            margin-bottom: 20px;
+        }
+
+        .display-sample {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 500;
+            line-height: 1.1;
+            color: var(--warm-white);
+            margin-bottom: 20px;
+        }
+
+        .body-sample {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--muted-taupe);
+        }
+
+        /* LOGO SYSTEM */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .logo-item {
+            background: var(--off-black);
+            border: 1px solid var(--line);
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 200px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
+
+        .logo-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted-taupe);
+        }
+
+        /* VISUAL LANGUAGE */
+        .visual-principles {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .principle {
+            background: var(--off-black);
+            border: 1px solid var(--line);
+            padding: 30px;
+        }
+
+        .principle h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--electric-lime);
+        }
+
+        .principle p {
+            font-size: 0.9rem;
+            color: var(--muted-taupe);
+            line-height: 1.6;
+        }
+
+        /* BRAND MARK MEANING */
+        .brand-mark-section {
+            background: var(--off-black);
+            border: 1px solid var(--line);
+            padding: 60px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .brand-mark-section img {
+            width: 150px;
+            margin-bottom: 30px;
+        }
+
+        .brand-mark-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--warm-white);
+        }
+
+        .brand-mark-meaning {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .meaning-item {
+            text-align: center;
+        }
+
+        .meaning-item strong {
+            display: block;
+            color: var(--electric-lime);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .meaning-item p {
+            font-size: 0.9rem;
+            color: var(--muted-taupe);
+        }
+
+        /* VOICE & TONE */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .voice-list {
+            background: var(--off-black);
+            border: 1px solid var(--line);
+            padding: 40px;
+        }
+
+        .voice-list h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--electric-lime);
+        }
+
+        .voice-list ul {
+            list-style: none;
+        }
+
+        .voice-list li {
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: var(--muted-taupe);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .voice-list li:last-child {
+            border-bottom: none;
+        }
+
+        .voice-list li::before {
+            content: "→ ";
+            color: var(--electric-lime);
+            margin-right: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding-top: 60px;
+            border-top: 1px solid var(--line);
+            margin-top: 100px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--dim-taupe);
+        }
+
+        footer .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--electric-lime);
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .philosophy-grid,
+            .color-grid,
+            .typography-section,
+            .logo-grid,
+            .visual-principles,
+            .brand-mark-meaning,
+            .voice-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .display-sample {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="assets/logos/brand-mark-FINAL.png" alt="The Krystal Method Star" class="logo-mark">
+            <h1>The Krystal Method</h1>
+            <p class="subtitle">Brand Board v1.0</p>
+            <p class="tagline">"The strongest brands aren't invented. They're revealed."</p>
+        </header>
+
+        <!-- PHILOSOPHY -->
+        <section class="section">
+            <h2 class="section-title">Philosophy</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h3>Core Belief</h3>
+                    <p>Every brand leaves clues. Audience reactions. Instinct. History. Language. Work. Personality. The Krystal Method collects those clues until the common thread becomes obvious. Everything built afterward serves that truth.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3>Mission</h3>
+                    <p>Reveal the truth at the center of a brand. Then build the systems that allow it to exist consistently across every touchpoint.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLOR PALETTE -->
+        <section class="section">
+            <h2 class="section-title">Color Palette</h2>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #050505; border: 1px solid #C6FF2E;"></div>
+                    <div class="color-name">Black</div>
+                    <div class="color-code">#050505</div>
+                    <p style="font-size: 0.8rem; color: var(--dim-taupe); margin-top: 8px;">Foundation</p>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #0A0A0D; border: 1px solid #C6FF2E;"></div>
+                    <div class="color-name">Off Black</div>
+                    <div class="color-code">#0A0A0D</div>
+                    <p style="font-size: 0.8rem; color: var(--dim-taupe); margin-top: 8px;">Surfaces</p>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #F0EADF; border: 1px solid #050505;"></div>
+                    <div class="color-name">Warm White</div>
+                    <div class="color-code">#F0EADF</div>
+                    <p style="font-size: 0.8rem; color: var(--dim-taupe); margin-top: 8px;">Typography</p>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #C6FF2E; border: 1px solid #050505;"></div>
+                    <div class="color-name">Electric Lime</div>
+                    <div class="color-code">#C6FF2E</div>
+                    <p style="font-size: 0.8rem; color: var(--dim-taupe); margin-top: 8px;">Accent Only</p>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #3A0CA3; border: 1px solid #C6FF2E;"></div>
+                    <div class="color-name">Royal Purple</div>
+                    <div class="color-code">#3A0CA3</div>
+                    <p style="font-size: 0.8rem; color: var(--dim-taupe); margin-top: 8px;">Atmosphere</p>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #B6B0A7; border: 1px solid #050505;"></div>
+                    <div class="color-name">Muted Taupe</div>
+                    <div class="color-code">#B6B0A7</div>
+                    <p style="font-size: 0.8rem; color: var(--dim-taupe); margin-top: 8px;">Supporting</p>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #77716B; border: 1px solid #C6FF2E;"></div>
+                    <div class="color-name">Dim Taupe</div>
+                    <div class="color-code">#77716B</div>
+                    <p style="font-size: 0.8rem; color: var(--dim-taupe); margin-top: 8px;">Disabled</p>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #EEE8DB; border: 1px solid #050505;"></div>
+                    <div class="color-name">Paper</div>
+                    <div class="color-code">#EEE8DB</div>
+                    <p style="font-size: 0.8rem; color: var(--dim-taupe); margin-top: 8px;">Highlight</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TYPOGRAPHY -->
+        <section class="section">
+            <h2 class="section-title">Typography</h2>
+            <div class="typography-section">
+                <div class="type-sample">
+                    <p class="type-label">Display / Headlines</p>
+                    <div class="display-sample">Cormorant Garamond</div>
+                    <p style="font-size: 0.9rem; color: var(--muted-taupe);">Bold, Medium, Regular</p>
+                </div>
+                <div class="type-sample">
+                    <p class="type-label">Body / UI / Supporting</p>
+                    <div class="body-sample">Oswald Regular, Medium, Bold. Used for all body text, interface elements, and supporting content. Clean, geometric, and highly legible.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOGO SYSTEM -->
+        <section class="section">
+            <h2 class="section-title">Logo System</h2>
+            <div class="logo-grid">
+                <div class="logo-item">
+                    <img src="assets/logos/brand-mark-FINAL.png" alt="Brand Mark">
+                    <p class="logo-label">Brand Mark</p>
+                </div>
+                <div class="logo-item">
+                    <img src="assets/logos/primary-logo-LIME-STAR.png" alt="Primary Logo">
+                    <p class="logo-label">Primary Logo</p>
+                </div>
+                <div class="logo-item">
+                    <img src="assets/logos/alternate-logo-LIME-STAR.png" alt="Alternate Logo">
+                    <p class="logo-label">Alternate Logo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BRAND MARK MEANING -->
+        <section class="section">
+            <div class="brand-mark-section">
+                <img src="assets/logos/brand-mark-FINAL.png" alt="The Eight-Point Star">
+                <h3>The Eight-Point Star</h3>
+                <p style="color: var(--muted-taupe); font-size: 1rem; margin-bottom: 30px;">The core symbol of The Krystal Method</p>
+                <div class="brand-mark-meaning">
+                    <div class="meaning-item">
+                        <strong>Discovery</strong>
+                        <p>Uncovering what already makes a brand compelling</p>
+                    </div>
+                    <div class="meaning-item">
+                        <strong>Alignment</strong>
+                        <p>Building systems that express that truth consistently</p>
+                    </div>
+                    <div class="meaning-item">
+                        <strong>Recognition</strong>
+                        <p>Creating identities that feel inevitable and authentic</p>
+                    </div>
+                </div>
+                <p style="color: var(--dim-taupe); font-size: 0.9rem; margin-top: 40px; text-transform: uppercase; letter-spacing: 0.1em;">An accent. Never the hero. Never oversized.</p>
+            </div>
+        </section>
+
+        <!-- VISUAL LANGUAGE -->
+        <section class="section">
+            <h2 class="section-title">Visual Language</h2>
+            <div class="visual-principles">
+                <div class="principle">
+                    <h4>Editorial</h4>
+                    <p>Luxury publishing. Museum catalog. Creative director. Architectural. High contrast. Negative space.</p>
+                </div>
+                <div class="principle">
+                    <h4>Minimal</h4>
+                    <p>Nothing ornamental without purpose. Texture over decoration. Atmosphere over effects.</p>
+                </div>
+                <div class="principle">
+                    <h4>Intentional</h4>
+                    <p>Dark backgrounds. Subtle glow. Intentional negative space. Every element serves the philosophy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VOICE & TONE -->
+        <section class="section">
+            <h2 class="section-title">Voice & Tone</h2>
+            <div class="voice-grid">
+                <div class="voice-list">
+                    <h4>Tone of Voice</h4>
+                    <ul>
+                        <li>Honest</li>
+                        <li>Direct</li>
+                        <li>Human</li>
+                        <li>Quietly confident</li>
+                        <li>Never arrogant</li>
+                        <li>Never salesy</li>
+                        <li>Editorial</li>
+                        <li>Thoughtful</li>
+                        <li>Practical</li>
+                        <li>Emotionally intelligent</li>
+                        <li>Creative with purpose</li>
+                    </ul>
+                </div>
+                <div class="voice-list">
+                    <h4>Writing Style</h4>
+                    <ul>
+                        <li>Short sentences</li>
+                        <li>Simple language</li>
+                        <li>No buzzwords</li>
+                        <li>No exaggerated promises</li>
+                        <li>Every sentence intentional</li>
+                        <li>If it sounds like marketing, simplify</li>
+                        <li>Personality-driven</li>
+                        <li>Curious and observant</li>
+                        <li>Strategic and creative</li>
+                        <li>Calm and independent</li>
+                        <li>Never trying too hard</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIGNATURE STATEMENTS -->
+        <section class="section">
+            <h2 class="section-title">Signature Statements</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--electric-lime); line-height: 1.6;">"I don't build brands. I reveal them."</p>
+                </div>
+                <div class="philosophy-card">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--electric-lime); line-height: 1.6;">"The strongest brands aren't invented. They're revealed."</p>
+                </div>
+                <div class="philosophy-card">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--electric-lime); line-height: 1.6;">"AI is the workshop. Judgment is the product."</p>
+                </div>
+                <div class="philosophy-card">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--electric-lime); line-height: 1.6;">"Every brand leaves clues."</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>The Krystal Method — Brand Board v1.0</p>
+            <p class="signature">The strongest brands aren't invented. They're revealed.</p>
+        </footer>
+    </div>
+</body>
+</html>
