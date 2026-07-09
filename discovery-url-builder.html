@@ -20,6 +20,17 @@
 }
 body {
   background: var(--off);
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 84% 5%, rgba(58, 12, 163, 0.25), transparent 30rem), 
+    radial-gradient(circle at 8% 34%, rgba(58, 12, 163, 0.2), transparent 36rem);
+  pointer-events: none;
   color: var(--bone);
   font-family: 'Oswald', sans-serif;
   font-size: 15px;
@@ -189,6 +200,9 @@ button:hover { opacity: .88; transform: translateY(-1px); }
 </head>
 <body>
 <div class="wrap">
+  <header style="text-align: center; margin-bottom: 40px;">
+    <img src="assets/logos/logo_horizontal_white.png" alt="TKM Logo" style="max-width: 240px; height: auto;">
+  </header>
 
   <h1>Discovery Link <em>Builder</em></h1>
   <p class="sub">Fill in what you know about the client. The URL builds itself. Copy and paste into your DM or email.</p>

@@ -62,6 +62,20 @@
         .link-card .arrow { position: absolute; top: 32px; right: 32px; color: var(--electric-lime); font-size: 1.2rem; opacity: 0.5; }
         footer { margin-top: auto; padding-top: 80px; text-align: center; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted-taupe); }
     </style>
+
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 84% 5%, rgba(58, 12, 163, 0.25), transparent 30rem), 
+                radial-gradient(circle at 8% 34%, rgba(58, 12, 163, 0.2), transparent 36rem);
+            pointer-events: none;
+        }
+    </style>
+    
 </head>
 <body>
     <div class="container">
