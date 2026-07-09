@@ -1,0 +1,129 @@
+
+/* Offers Grid Styles */
+.offers-grid { 
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 40px; 
+    margin-top: 60px;
+    margin-bottom: 80px; 
+}
+
+.offer-card { 
+    background: #050505; 
+    border: 1px solid rgba(240, 234, 223, 0.1); 
+    padding: 48px; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.offer-card.flagship { 
+    border-color: #C6FF2E; 
+    box-shadow: 0 0 40px rgba(198, 255, 46, 0.05); 
+}
+
+.offer-card .label { 
+    font-size: 0.65rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.3em; 
+    color: #C6FF2E; 
+    margin-bottom: 24px; 
+    display: block; 
+}
+
+.offer-card h3 { 
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; 
+    margin-bottom: 12px; 
+    font-weight: 500;
+}
+
+.offer-card .price { 
+    font-size: 2rem; 
+    color: #C6FF2E; 
+    margin-bottom: 8px; 
+    display: block; 
+}
+
+.offer-card .tier { 
+    font-size: 0.7rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.2em; 
+    color: #B6B0A7; 
+    margin-bottom: 32px; 
+    display: block; 
+}
+
+.offer-card .desc { 
+    font-size: 1rem; 
+    color: #B6B0A7; 
+    margin-bottom: 40px; 
+    line-height: 1.6; 
+}
+
+.offer-list { 
+    list-style: none; 
+    padding: 0;
+}
+
+.offer-list li { 
+    padding: 12px 0; 
+    border-bottom: 1px solid rgba(240, 234, 223, 0.1); 
+    font-size: 0.9rem; 
+    color: #F0EADF; 
+    display: flex; 
+    align-items: center; 
+}
+
+.offer-list li::before { 
+    content: "—"; 
+    color: #C6FF2E; 
+    margin-right: 12px; 
+}
+
+.add-ons { 
+    display: grid; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 20px; 
+}
+
+.add-on-card { 
+    background: #050505; 
+    border: 1px solid rgba(240, 234, 223, 0.1); 
+    padding: 32px; 
+}
+
+.add-on-card .label { 
+    font-size: 0.6rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.2em; 
+    color: #C6FF2E; 
+    margin-bottom: 16px; 
+    display: block; 
+}
+
+.add-on-card h4 { 
+    font-family: 'Cormorant Garamond', serif; 
+    font-size: 1.8rem; 
+    margin-bottom: 8px; 
+    font-weight: 500;
+}
+
+.add-on-card .price { 
+    color: #C6FF2E; 
+    font-size: 1.2rem; 
+    margin-bottom: 16px; 
+    display: block; 
+}
+
+.add-on-card p { 
+    font-size: 0.85rem; 
+    color: #B6B0A7; 
+    line-height: 1.5; 
+}
+
+@media (max-width: 900px) {
+    .offers-grid { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+}
