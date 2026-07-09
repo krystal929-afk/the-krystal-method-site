@@ -45,6 +45,19 @@ h2 { font-size: 1.2rem; margin-bottom: 15px; }
 .step { margin-bottom: 15px; font-size: 0.9rem; color: rgba(244,234,223,0.8); }
 .step strong { color: var(--bone); display: block; margin-bottom: 4px; }
 </style>
+
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 84% 5%, rgba(58, 12, 163, 0.25), transparent 30rem), 
+                radial-gradient(circle at 8% 34%, rgba(58, 12, 163, 0.2), transparent 36rem);
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
 

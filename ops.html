@@ -99,6 +99,19 @@ input:focus { border-color: var(--lime); }
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 </style>
+
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 84% 5%, rgba(58, 12, 163, 0.25), transparent 30rem), 
+                radial-gradient(circle at 8% 34%, rgba(58, 12, 163, 0.2), transparent 36rem);
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -249,7 +262,7 @@ input:focus { border-color: var(--lime); }
     <span class="btn-label">Internal</span>
     Client Onboarding Portal
   </a>
-  <a href="https://trello.com" class="btn">
+  <a href="https://calendar.google.com" class="btn">
     <span class="btn-label">External</span>
     Open Trello Board
   </a>
