@@ -3,563 +3,831 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Krystal Method | Brand Strategy, Creative Systems, AI Direction</title>
-  <meta name="description" content="The Krystal Method builds brand systems for strong ideas lacking direction — voice, visuals, pages, publishing ecosystems, and AI workflows shaped around what already makes the work compelling.">
+  <title>The Krystal Method | Brand Systems for Strong Ideas</title>
+  <meta name="description" content="The Krystal Method builds brand systems for strong ideas lacking direction: voice, positioning, landing pages, EPKs, publishing ecosystems, and AI-supported creative operations.">
   <meta property="og:title" content="The Krystal Method">
   <meta property="og:description" content="Brand systems for strong ideas lacking direction">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#050505">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#050505;
-      --panel:#0c0c10;
-      --panel2:#111117;
-      --text:#e6dccd;
-      --muted:#a99f92;
-      --line:rgba(230,220,205,.12);
-      --line-strong:rgba(230,220,205,.20);
-      --lime:#c6ff2e;
-      --violet:#3a0ca3;
-      --glow:0 0 0 1px rgba(198,255,46,.16), 0 18px 50px rgba(0,0,0,.42);
-      --max:1240px;
-      --radius:28px;
-      --radius-sm:18px;
+    :root {
+      --black: #050505;
+      --ink: #09090c;
+      --panel: #101014;
+      --panel-soft: #151419;
+      --bone: #e9decc;
+      --bone-soft: #cfc3b4;
+      --taupe: #a69c8f;
+      --dim: #70695f;
+      --lime: #c6ff2e;
+      --purple: #3a0ca3;
+      --line: rgba(233, 222, 204, .13);
+      --line-bright: rgba(198, 255, 46, .22);
+      --max: 1200px;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --condensed: "Oswald", Arial, sans-serif;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
       background:
-        radial-gradient(circle at 12% 12%, rgba(58,12,163,.18), transparent 28rem),
-        radial-gradient(circle at 84% 18%, rgba(198,255,46,.08), transparent 22rem),
-        radial-gradient(circle at 50% 120%, rgba(58,12,163,.18), transparent 32rem),
-        var(--bg);
-      color:var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height:1.55;
+        radial-gradient(circle at 14% 4%, rgba(58,12,163,.24), transparent 30rem),
+        radial-gradient(circle at 86% 18%, rgba(198,255,46,.06), transparent 22rem),
+        radial-gradient(circle at 55% 104%, rgba(58,12,163,.18), transparent 34rem),
+        var(--black);
+      color: var(--bone);
+      font-family: var(--condensed);
+      line-height: 1.55;
+      overflow-x: hidden;
     }
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(var(--max), calc(100% - 34px)); margin:0 auto}
-    .skip-link{
-      position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
-    }
-    .skip-link:focus{left:16px;top:16px;width:auto;height:auto;padding:10px 12px;background:#fff;color:#000;z-index:100}
 
-    .site-header{
-      padding:28px 0 16px;
-      position:sticky;
-      top:0;
-      z-index:30;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .20;
+      background-image:
+        linear-gradient(rgba(233,222,204,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(233,222,204,.03) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(circle at 50% 35%, black, transparent 76%);
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 34px)); margin: 0 auto; }
+
+    .skip-link { position: absolute; left: -999px; }
+    .skip-link:focus { left: 12px; top: 12px; z-index: 999; background: var(--bone); color: #050505; padding: 10px 14px; }
+
+    .eyebrow,
+    .nav a,
+    .button,
+    .pill,
+    .tiny,
+    .card-number,
+    .case-type,
+    .label {
+      font-family: var(--condensed);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      padding: 18px 0 12px;
+      background: linear-gradient(180deg, rgba(5,5,5,.94), rgba(5,5,5,.70));
       backdrop-filter: blur(14px);
-      background:linear-gradient(180deg, rgba(5,5,5,.9), rgba(5,5,5,.72));
-      border-bottom:1px solid rgba(242,236,226,.08);
-    }
-    .header-shell{display:grid;gap:18px}
-    .logo-card{
-      background:linear-gradient(180deg, rgba(10,10,14,.94), rgba(8,8,10,.88));
-      border:1px solid rgba(242,236,226,.14);
-      border-radius:30px;
-      padding:24px clamp(18px, 4vw, 32px);
-      box-shadow:var(--glow);
-    }
-    .logo-card img{width:min(640px, 100%)}
-
-    .nav-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-    .nav-links a{
-      font-family:Oswald, sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.15em;
-      font-size:.72rem;
-      padding:11px 15px;
-      border:1px solid rgba(242,236,226,.14);
-      border-radius:999px;
-      color:var(--muted);
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      transition:transform .18s ease, border-color .18s ease, color .18s ease, background .18s ease;
-    }
-    .nav-links a:hover{
-      color:var(--text);
-      border-color:rgba(198,255,46,.35);
-      background:linear-gradient(180deg, rgba(198,255,46,.08), rgba(58,12,163,.07));
-      transform:translateY(-1px);
+      border-bottom: 1px solid rgba(233,222,204,.07);
     }
 
-    main{padding:24px 0 90px}
-    section{padding:34px 0}
-    .section-head{
-      margin:0 auto 28px;
-      max-width:860px;
-      text-align:center;
+    .header-inner {
+      display: grid;
+      grid-template-columns: minmax(190px, 410px) 1fr;
+      gap: 18px;
+      align-items: center;
     }
-    .section-head .lead{margin-left:auto;margin-right:auto}
-    .kicker{
-      margin:0 0 10px;
-      font-family:Oswald, sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      color:var(--lime);
-      font-size:.74rem;
-    }
-    h1,h2,h3,h4{
-      margin:0;
-      font-family:"Cormorant Garamond", Georgia, serif;
-      font-weight:500;
-      letter-spacing:-.04em;
-      line-height:.94;
-      color:#eadfce;
-      text-shadow:0 0 22px rgba(238,232,219,.06);
-    }
-    h1{font-size:clamp(3.7rem, 8vw, 7.4rem)}
-    h2{font-size:clamp(2.8rem, 5vw, 4.8rem)}
-    h3{font-size:clamp(1.8rem, 3vw, 2.8rem)}
-    h4{font-size:clamp(1.32rem, 2.5vw, 1.8rem)}
-    .lead{font-size:clamp(1.05rem, 1.7vw, 1.26rem); color:var(--text); max-width:44rem; margin:18px 0 0}
-    .muted{color:var(--muted)}
 
-    .hero{
-      display:grid;
-      grid-template-columns:minmax(0, .95fr) minmax(0, 1.05fr);
-      gap:24px;
-      align-items:stretch;
+    .logo-link {
+      display: block;
+      padding: 14px 18px;
+      border: 1px solid rgba(233,222,204,.12);
+      background: linear-gradient(180deg, rgba(16,16,20,.78), rgba(7,7,9,.86));
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.28);
     }
-    .hero-copy,
-    .proof-wall{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(13,13,18,.92), rgba(8,8,10,.92));
-      box-shadow:var(--glow);
-    }
-    .hero-copy{
-      padding:30px clamp(22px, 4vw, 38px);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      min-height:640px;
-    }
-    .hero-copy .micro{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:10px;
-      margin:22px 0 0;
-    }
-    .micro span,
-    .tags span,
-    .proof-chip{
-      border:1px solid rgba(198,255,46,.24);
-      background:rgba(198,255,46,.04);
-      color:var(--text);
-      font-family:Oswald, sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:.66rem;
-      padding:7px 10px;
-      border-radius:999px;
-    }
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:12px;
-      margin:28px 0 0;
-    }
-    .button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:52px;
-      padding:0 18px;
-      border:1px solid var(--line-strong);
-      border-radius:999px;
-      font-family:Oswald, sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.13em;
-      font-size:.76rem;
-      transition:transform .18s ease, border-color .18s ease, background .18s ease;
-      background:rgba(255,255,255,.02);
-    }
-    .button:hover{transform:translateY(-1px);border-color:rgba(242,236,226,.34)}
-    .button.primary{background:var(--lime); color:#080808; border-color:var(--lime); font-weight:600}
 
-    .belief{
-      margin-top:28px;
-      padding:18px 18px 16px;
-      border:1px solid rgba(230,220,205,.11);
-      border-radius:20px;
-      background:linear-gradient(180deg, rgba(58,12,163,.14), rgba(198,255,46,.025));
-      color:#d8cebf;
+    .logo-link img {
+      width: 100%;
+      max-height: 84px;
+      object-fit: contain;
     }
-    .belief p{margin:0;font-size:1rem;color:var(--text)}
-    .belief p + p{margin-top:8px}
 
-    .proof-wall{padding:18px; display:grid; gap:14px; min-height:640px}
-    .proof-head{
-      display:grid;
-      gap:12px;
-      justify-items:center;
-      text-align:center;
-      padding:4px 6px 2px;
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
     }
-    .proof-head p{margin:0;max-width:22rem;color:var(--muted);font-size:.96rem}
-    .proof-grid{
-      display:grid;
-      grid-template-columns:1.18fr .82fr;
-      gap:12px;
-      flex:1;
-      min-height:0;
-    }
-    .proof-main,
-    .proof-stack,
-    .proof-row,
-    .proof-card{
-      min-height:0;
-    }
-    .proof-card{
-      position:relative;
-      border:1px solid rgba(242,236,226,.14);
-      border-radius:22px;
-      overflow:hidden;
-      background:#090909;
-      box-shadow:0 14px 34px rgba(0,0,0,.36);
-    }
-    .proof-card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .proof-label{
-      position:absolute;
-      left:12px;
-      bottom:12px;
-      padding:8px 10px;
-      border-radius:999px;
-      background:rgba(5,5,5,.78);
-      border:1px solid rgba(242,236,226,.16);
-      font-family:Oswald,sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:.62rem;
-      color:var(--text);
-    }
-    .proof-main{min-height:396px}
-    .proof-stack{display:grid; grid-template-rows:1fr 1fr; gap:12px}
-    .proof-row{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px}
 
-    .manifesto-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:14px;
+    .nav a {
+      color: var(--taupe);
+      font-size: .66rem;
+      padding: 8px 11px;
+      border: 1px solid rgba(233,222,204,.12);
+      border-radius: 999px;
+      background: rgba(233,222,204,.018);
     }
-    .manifesto-card,
-    .build-card,
-    .method-card,
-    .contact-card,
-    .about-card,
+
+    .nav a:hover {
+      color: var(--bone);
+      border-color: var(--line-bright);
+      background: rgba(198,255,46,.045);
+    }
+
+    main { padding: 18px 0 84px; }
+    section { padding: 34px 0; }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      font-family: var(--serif);
+      color: var(--bone);
+      font-weight: 500;
+      letter-spacing: -.045em;
+      line-height: .92;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 7.7rem);
+      max-width: 920px;
+    }
+
+    h2 {
+      font-size: clamp(2.8rem, 5.3vw, 5.2rem);
+      max-width: 860px;
+    }
+
+    h3 { font-size: clamp(2rem, 3.8vw, 3.6rem); }
+    h4 { font-size: clamp(1.6rem, 2.5vw, 2.3rem); }
+
+    .display-alt {
+      font-style: italic;
+      color: var(--bone-soft);
+      font-weight: 400;
+    }
+
+    .eyebrow {
+      color: var(--lime);
+      font-size: .72rem;
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      margin: 20px 0 0;
+      color: var(--bone-soft);
+      font-size: clamp(1.05rem, 1.6vw, 1.26rem);
+      max-width: 700px;
+      letter-spacing: .02em;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border: 1px solid rgba(233,222,204,.18);
+      border-radius: 999px;
+      color: var(--bone);
+      font-size: .68rem;
+      background: rgba(233,222,204,.025);
+    }
+
+    .button.primary {
+      background: var(--lime);
+      color: #070707;
+      border-color: var(--lime);
+      font-weight: 600;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding: clamp(26px, 4vw, 46px);
+      min-height: 650px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(58,12,163,.22), transparent 24rem),
+        linear-gradient(180deg, rgba(16,16,20,.86), rgba(7,7,9,.92));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 20px 54px rgba(0,0,0,.35);
+    }
+
+    .hero-copy h1 .break {
+      display: block;
+    }
+
+    .hero-note {
+      margin-top: 26px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(198,255,46,.22);
+      display: grid;
+      gap: 8px;
+      color: var(--taupe);
+      font-size: .98rem;
+      max-width: 620px;
+    }
+
+    .hero-note strong { color: var(--bone); font-weight: 500; }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      color: var(--bone-soft);
+      border: 1px solid rgba(198,255,46,.20);
+      background: rgba(198,255,46,.035);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: .60rem;
+    }
+
+    .proof-panel {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 78% 4%, rgba(58,12,163,.36), transparent 26rem),
+        linear-gradient(180deg, rgba(15,15,20,.86), rgba(6,6,8,.94));
+      padding: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 54px rgba(0,0,0,.35);
+    }
+
+    .proof-title {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: end;
+      padding: 4px 4px 14px;
+      border-bottom: 1px solid rgba(233,222,204,.10);
+      margin-bottom: 14px;
+    }
+
+    .proof-title h3 {
+      font-size: clamp(2.1rem, 4vw, 4.4rem);
+    }
+
+    .label {
+      color: var(--lime);
+      font-size: .66rem;
+      margin: 0 0 8px;
+    }
+
+    .proof-chip {
+      color: var(--taupe);
+      border: 1px solid rgba(198,255,46,.18);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: .58rem;
+      white-space: nowrap;
+    }
+
+    .editorial-proof {
+      display: grid;
+      grid-template-columns: 1.18fr .82fr;
+      gap: 12px;
+    }
+
+    .proof-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(233,222,204,.13);
+      border-radius: 20px;
+      background: #08080a;
+      min-height: 170px;
+      box-shadow: 0 12px 32px rgba(0,0,0,.32);
+    }
+
+    .image-card.large { min-height: 420px; }
+    .image-card.medium { min-height: 204px; }
+    .proof-row .image-card { min-height: 160px; }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .image-card.contain img {
+      object-fit: contain;
+      padding: 10px;
+      background: #060607;
+    }
+
+    .image-card .caption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      background: rgba(5,5,5,.80);
+      border: 1px solid rgba(233,222,204,.12);
+      border-radius: 999px;
+      padding: 7px 9px;
+      color: var(--bone-soft);
+      font-size: .58rem;
+      font-family: var(--condensed);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .stripe {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(233,222,204,.018);
+      margin: 20px 0 4px;
+    }
+
+    .stripe-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(233,222,204,.08);
+    }
+
+    .stripe-card {
+      background: #070708;
+      padding: 22px;
+      min-height: 172px;
+    }
+
+    .card-number {
+      color: var(--lime);
+      font-size: .62rem;
+      margin-bottom: 18px;
+    }
+
+    .stripe-card h4 {
+      font-size: clamp(1.55rem, 2.2vw, 2.15rem);
+      margin-bottom: 10px;
+    }
+
+    .stripe-card p {
+      margin: 0;
+      color: var(--taupe);
+      font-family: var(--condensed);
+      letter-spacing: .02em;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-head .eyebrow { margin-bottom: 0; }
+    .section-head p:not(.eyebrow) {
+      margin: 0;
+      color: var(--taupe);
+      max-width: 600px;
+      font-family: var(--condensed);
+      letter-spacing: .02em;
+    }
+
+    .truth-grid {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .quote-block,
+    .text-block,
     .case-card,
-    .proof-mini,
-    .service-blurb{
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(13,13,18,.92), rgba(8,8,10,.92));
-      box-shadow:var(--glow);
-    }
-    .manifesto-card{padding:22px}
-    .manifesto-card h4{margin-bottom:10px}
-    .manifesto-card p{margin:0;color:var(--muted)}
-
-    .truth-grid{
-      display:grid;
-      grid-template-columns:.95fr 1.05fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    .about-card{padding:28px}
-    .about-card p{margin:0 0 14px;color:var(--muted)}
-    .about-card p:last-child{margin-bottom:0}
-    .quote-panel{
-      padding:30px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      min-height:100%;
-      background:
-        radial-gradient(circle at 85% 10%, rgba(58,12,163,.24), transparent 18rem),
-        radial-gradient(circle at 0% 100%, rgba(198,255,46,.10), transparent 18rem),
-        linear-gradient(180deg, rgba(13,13,18,.94), rgba(8,8,10,.94));
-    }
-    .quote-panel .star{
-      width:66px;
-      margin-bottom:18px;
-    }
-    .quote-panel blockquote{
-      margin:0;
-      font-family:"Cormorant Garamond", Georgia, serif;
-      font-size:clamp(2rem, 4vw, 3.5rem);
-      line-height:.98;
-      max-width:20rem;
-    }
-    .quote-panel .line{
-      width:100%;
-      height:1px;
-      margin:18px 0 22px;
-      background:linear-gradient(90deg, var(--lime), rgba(58,12,163,.8), transparent);
-    }
-
-    .evidence-layout{display:grid; gap:18px}
-    .case-card{overflow:hidden}
-    .case-grid{display:grid; grid-template-columns:.92fr 1.08fr; gap:0}
-    .case-copy{
-      padding:28px;
-      text-align:center;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-    }
-    .case-copy p{color:var(--muted)}
-    .case-num{
-      margin:0 0 14px;
-      font-family:Oswald, sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:var(--lime);
-      font-size:.72rem;
-    }
-    .case-visual{
-      min-height:100%;
-      border-left:1px solid var(--line);
-      background:radial-gradient(circle at 80% 10%, rgba(58,12,163,.28), transparent 18rem), #090909;
-      padding:18px;
-    }
-    .case-visual.single img{
-      width:100%;
-      height:100%;
-      min-height:320px;
-      object-fit:cover;
-      border-radius:20px;
-      border:1px solid rgba(242,236,226,.14);
-    }
-    .book-grid{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:12px;
-      height:100%;
-    }
-    .book-grid img,
-    .proof-mini img{
-      width:100%;
-      height:100%;
-      min-height:160px;
-      object-fit:cover;
-      border-radius:18px;
-      border:1px solid rgba(242,236,226,.12);
-    }
-    .small-cases{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:18px;
-    }
-    .proof-mini{padding:20px; display:grid; grid-template-columns:160px 1fr; gap:18px; align-items:center}
-    .proof-mini p{margin:.5rem 0 0;color:var(--muted)}
-
-    .build-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-    }
-    .build-card{padding:22px; min-height:228px; display:flex; flex-direction:column; gap:18px; justify-content:space-between}
-    .build-num{
-      font-family:Oswald,sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:var(--lime);
-      font-size:.72rem;
-    }
-    .build-card p{margin:0;color:var(--muted)}
-
-    .method-grid{
-      display:grid;
-      grid-template-columns:repeat(5, 1fr);
-      gap:14px;
-    }
-    .method-card{padding:20px; min-height:220px}
-    .method-step{
-      display:inline-block;
-      margin-bottom:24px;
-      font-family:Oswald,sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:var(--lime);
-      font-size:.68rem;
-    }
-    .method-card p{margin:12px 0 0;color:var(--muted)}
-
-    .about-grid{
-      display:grid;
-      grid-template-columns:.9fr 1.1fr;
-      gap:18px;
-    }
-    .service-blurb{padding:26px}
-    .service-blurb p{margin:0 0 14px;color:var(--muted)}
-    .service-blurb p:last-child{margin-bottom:0}
-
-    .contact-card{
-      padding:28px;
-      background:
-        radial-gradient(circle at 15% 100%, rgba(198,255,46,.10), transparent 18rem),
-        radial-gradient(circle at 90% 0%, rgba(58,12,163,.24), transparent 18rem),
-        linear-gradient(180deg, rgba(13,13,18,.94), rgba(8,8,10,.94));
-    }
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:24px;
-      align-items:end;
-    }
-    .contact-grid p{margin:0;color:var(--muted);max-width:44rem}
-    .contact-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      justify-content:flex-start;
-      margin-top:24px;
-    }
-
-    footer{
-      padding:26px 0 50px;
-      color:var(--muted);
-      text-align:center;
-      border-top:1px solid rgba(242,236,226,.08);
-      font-family:Oswald, sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:.68rem;
-    }
-
-
-    .case-copy .tags{justify-content:center}
-    .build-card,
+    .service-card,
     .method-card,
-    .manifesto-card,
-    .service-blurb{
-      text-align:center;
-    }
-    .build-card{
-      align-items:center;
-    }
-    .about-card{
-      text-align:center;
-    }
-    .about-card p,
-    .service-blurb p,
-    .contact-grid p{
-      color:var(--muted);
-    }
-    .quote-panel{
-      align-items:center;
-      text-align:center;
-    }
-    .quote-panel blockquote{
-      max-width:28rem;
-    }
-    .contact-card{
-      text-align:center;
-    }
-    .contact-links{
-      justify-content:center;
-    }
-    .contact-grid img{
-      margin:0 auto !important;
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 92% 0%, rgba(58,12,163,.17), transparent 20rem),
+        linear-gradient(180deg, rgba(16,16,20,.78), rgba(7,7,9,.92));
+      box-shadow: 0 18px 48px rgba(0,0,0,.30);
     }
 
-    @media (max-width: 1080px){
-      .hero,
+    .quote-block {
+      padding: 30px;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .quote-block img {
+      width: 70px;
+      margin-bottom: 30px;
+    }
+
+    .quote-block blockquote {
+      margin: 0;
+      font-family: var(--serif);
+      color: var(--bone);
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      line-height: .95;
+      letter-spacing: -.045em;
+    }
+
+    .text-block {
+      padding: 30px;
+    }
+
+    .text-block p {
+      color: var(--taupe);
+      margin: 16px 0 0;
+      font-family: var(--condensed);
+      letter-spacing: .02em;
+    }
+
+    .case-card {
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      min-height: 430px;
+    }
+
+    .case-copy {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .case-type {
+      color: var(--lime);
+      font-size: .66rem;
+      margin-bottom: 15px;
+    }
+
+    .case-copy p {
+      color: var(--taupe);
+      margin: 16px 0 0;
+      font-family: var(--condensed);
+      letter-spacing: .02em;
+      max-width: 560px;
+    }
+
+    .case-images {
+      border-left: 1px solid var(--line);
+      padding: 14px;
+      background:
+        radial-gradient(circle at 80% 16%, rgba(58,12,163,.28), transparent 22rem),
+        #08080a;
+    }
+
+    .case-images.single .image-card {
+      height: 100%;
+      min-height: 380px;
+    }
+
+    .book-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      height: 100%;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 22px;
+    }
+
+    .tag-row span {
+      color: var(--bone-soft);
+      border: 1px solid rgba(198,255,46,.18);
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-family: var(--condensed);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .58rem;
+      background: rgba(198,255,46,.025);
+    }
+
+    .mini-proof {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .mini-proof .case-card {
+      margin: 0;
+    }
+
+    .mini-proof-inner {
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 18px;
+    }
+
+    .mini-proof .image-card {
+      min-height: 150px;
+    }
+
+    .build-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .service-card {
+      padding: 24px;
+      min-height: 240px;
+      display: grid;
+      align-content: space-between;
+      gap: 24px;
+    }
+
+    .service-card h4 {
+      font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--taupe);
+      font-family: var(--condensed);
+      letter-spacing: .02em;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .method-card {
+      padding: 20px;
+      min-height: 240px;
+    }
+
+    .method-card h4 {
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      margin-top: 28px;
+    }
+
+    .method-card p {
+      color: var(--taupe);
+      font-family: var(--condensed);
+      letter-spacing: .02em;
+      margin: 12px 0 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact-card {
+      padding: 34px;
+      background:
+        radial-gradient(circle at 14% 100%, rgba(198,255,46,.09), transparent 22rem),
+        radial-gradient(circle at 90% 0%, rgba(58,12,163,.24), transparent 24rem),
+        linear-gradient(180deg, rgba(16,16,20,.82), rgba(7,7,9,.94));
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .contact-card p {
+      color: var(--taupe);
+      margin: 18px 0 0;
+      max-width: 690px;
+      font-family: var(--condensed);
+      letter-spacing: .02em;
+    }
+
+    .contact-card img {
+      width: 90px;
+      margin-left: auto;
+    }
+
+    footer {
+      border-top: 1px solid rgba(233,222,204,.09);
+      padding: 26px 0 44px;
+      color: var(--dim);
+      text-align: center;
+      font-size: .64rem;
+      font-family: var(--condensed);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid,
       .truth-grid,
       .case-grid,
       .about-grid,
-      .contact-grid,
-      .proof-mini{grid-template-columns:1fr}
-      .case-visual{border-left:0;border-top:1px solid var(--line)}
-      .manifesto-grid,
-      .build-grid,
-      .small-cases{grid-template-columns:1fr 1fr}
-      .method-grid{grid-template-columns:1fr 1fr}
-      .hero-copy{min-height:auto}
-      .proof-wall{min-height:auto}
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .case-images {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .stripe-inner,
+      .build-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .method-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mini-proof {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card img {
+        margin: 0;
+      }
     }
 
-    @media (max-width: 760px){
-      .wrap{width:min(var(--max), calc(100% - 22px))}
-      .site-header{
-        position:relative;
-        padding:12px 0 10px;
+    @media (max-width: 720px) {
+      .wrap { width: min(var(--max), calc(100% - 22px)); }
+
+      .site-header {
+        position: relative;
+        padding: 12px 0 8px;
       }
-      .header-shell{gap:10px}
-      .logo-card{
-        border-radius:20px;
-        padding:12px 14px;
+
+      .header-inner {
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
-      .logo-card img{
-        width:min(420px, 100%);
-        max-height:82px;
-        object-fit:contain;
+
+      .logo-link {
+        border-radius: 18px;
+        padding: 10px 13px;
       }
-      .nav-links{
-        display:flex;
-        flex-wrap:nowrap;
-        overflow-x:auto;
-        gap:7px;
-        padding-bottom:4px;
-        -webkit-overflow-scrolling:touch;
-        scrollbar-width:none;
+
+      .logo-link img {
+        max-height: 76px;
+        width: min(380px, 100%);
       }
-      .nav-links::-webkit-scrollbar{display:none}
-      .nav-links a{
-        flex:0 0 auto;
-        padding:8px 10px;
-        font-size:.58rem;
-        letter-spacing:.13em;
-        border-radius:999px;
+
+      .nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 3px;
       }
-      .proof-grid,
+
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav a {
+        flex: 0 0 auto;
+        padding: 7px 9px;
+        font-size: .56rem;
+        letter-spacing: .13em;
+      }
+
+      main { padding: 12px 0 64px; }
+      section { padding: 25px 0; }
+
+      .hero-copy {
+        min-height: auto;
+        padding: 26px 20px;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 14vw, 5.1rem);
+      }
+
+      h2 {
+        font-size: clamp(2.55rem, 11vw, 4.2rem);
+      }
+
+      h3 {
+        font-size: clamp(2rem, 9vw, 3.2rem);
+      }
+
+      .proof-title {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .proof-chip {
+        width: fit-content;
+      }
+
+      .editorial-proof,
       .proof-row,
-      .book-grid,
-      .manifesto-grid,
+      .book-layout,
+      .stripe-inner,
       .build-grid,
       .method-grid,
-      .small-cases{grid-template-columns:1fr}
-      .proof-stack{grid-template-rows:auto}
-      .proof-main{min-height:250px}
-      .hero-copy,
-      .quote-panel,
-      .about-card,
-      .service-blurb,
-      .contact-card,
+      .mini-proof-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-row {
+        margin-top: 12px;
+      }
+
+      .image-card.large,
+      .case-images.single .image-card {
+        min-height: 300px;
+      }
+
+      .image-card.medium,
+      .proof-row .image-card,
+      .mini-proof .image-card {
+        min-height: 230px;
+      }
+
+      .stripe-card,
+      .text-block,
+      .quote-block,
       .case-copy,
-      .build-card,
+      .service-card,
       .method-card,
-      .manifesto-card{padding:22px 18px}
-      .contact-grid{gap:18px}
-      .hero-actions .button,
-      .contact-links .button{width:100%}
-      main{padding:14px 0 70px}
-      section{padding:24px 0}
-      h1{font-size:clamp(2.75rem, 12vw, 4.45rem)}
-      h2{font-size:clamp(2.15rem, 8.6vw, 3.25rem)}
-      h3{font-size:clamp(1.8rem, 7.4vw, 2.7rem)}
-      .section-head{text-align:center}
+      .contact-card {
+        padding: 22px 19px;
+      }
+
+      .case-grid {
+        min-height: auto;
+      }
+
+      .case-images {
+        padding: 12px;
+      }
+
+      .tag-row {
+        gap: 6px;
+      }
+
+      .tag-row span {
+        font-size: .54rem;
+      }
+
+      .button-row .button,
+      .contact-card .button {
+        width: 100%;
+      }
+
+      .quote-block blockquote {
+        font-size: clamp(2.4rem, 10vw, 3.8rem);
+      }
+
+      .contact-card img {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -567,11 +835,11 @@
   <a class="skip-link" href="#contact">Skip to contact</a>
 
   <header class="site-header">
-    <div class="wrap header-shell">
-      <a class="logo-card" href="#top" aria-label="The Krystal Method home">
+    <div class="wrap header-inner">
+      <a class="logo-link" href="#top" aria-label="The Krystal Method home">
         <img src="assets/logos/tkm-logo-horizontal.png" alt="The Krystal Method">
       </a>
-      <nav class="nav-links" aria-label="Primary navigation">
+      <nav class="nav" aria-label="Primary navigation">
         <a href="#truth">Truth</a>
         <a href="#evidence">Evidence</a>
         <a href="#builds">Builds</a>
@@ -582,86 +850,91 @@
   </header>
 
   <main id="top">
-    <section class="wrap hero-section">
-      <div class="hero">
+    <section class="wrap">
+      <div class="hero-grid">
         <div class="hero-copy">
-          <p class="kicker">Krystal Alvarez · Brand strategy · Creative systems · AI direction</p>
-          <h1>Brand systems for strong ideas lacking direction</h1>
+          <p class="eyebrow">Krystal Alvarez · brand strategy · creative systems · AI direction</p>
+          <h1>Brand systems for <span class="display-alt">strong ideas</span> lacking direction</h1>
           <p class="lead">I help creators, artists, small businesses, and personality-led brands turn instinct into structure: voice, visuals, landing pages, offers, publishing ecosystems, and AI workflows that actually fit the work.</p>
-          <div class="micro" aria-label="Core capabilities">
-            <span>Voice & positioning</span>
-            <span>Landing pages</span>
-            <span>EPKs & media kits</span>
-            <span>Publishing systems</span>
-            <span>AI workflows</span>
+
+          <div class="pills">
+            <span class="pill">Voice & positioning</span>
+            <span class="pill">Landing pages</span>
+            <span class="pill">EPKs & media kits</span>
+            <span class="pill">Publishing systems</span>
+            <span class="pill">AI workflows</span>
           </div>
-          <div class="hero-actions">
+
+          <div class="button-row">
             <a class="button primary" href="https://calendly.com/krystal-method">Brainstorm with me</a>
             <a class="button" href="#evidence">See the proof</a>
           </div>
-          <div class="belief" aria-label="Brand philosophy">
-            <p><strong>The strongest brands aren't invented.</strong> They're revealed.</p>
-            <p><strong>AI is the workshop.</strong> Judgment is the product.</p>
-            <p><strong>Clear systems</strong> keep strong work from drifting.</p>
+
+          <div class="hero-note">
+            <div><strong>The strongest brands aren't invented.</strong> They're revealed.</div>
+            <div><strong>AI is the workshop.</strong> Judgment is the product.</div>
+            <div><strong>Clear systems</strong> keep strong work from drifting.</div>
           </div>
         </div>
 
-        <aside class="proof-wall" aria-label="Project proof wall">
-          <div class="proof-head">
+        <aside class="proof-panel" aria-label="Selected project images">
+          <div class="proof-title">
             <div>
-              <p class="kicker">Selected proof</p>
-              <h3>More than a moodboard</h3>
+              <p class="label">Selected proof</p>
+              <h3>More than a <span class="display-alt">moodboard</span></h3>
             </div>
-            <span class="proof-chip">Systems, not one-offs</span>
+            <div class="proof-chip">Systems, not one-offs</div>
           </div>
-          <div class="proof-grid">
-            <div class="proof-main proof-card">
+
+          <div class="editorial-proof">
+            <div class="image-card large">
               <img src="assets/featured/mr-satan-epk-cover.png" onerror="this.onerror=null;this.src='assets/proof/mr-satan-epk-cover.png';" alt="Mr. Satan EPK cover">
-              <div class="proof-label">Mr. Satan EPK</div>
+              <span class="caption">Mr. Satan EPK</span>
             </div>
             <div class="proof-stack">
-              <div class="proof-card">
+              <div class="image-card medium">
                 <img src="assets/featured/alignment-mirror-cover.png" onerror="this.onerror=null;this.src='assets/proof/alignment-mirror-cover.png';" alt="The Alignment Mirror cover">
-                <div class="proof-label">The Alignment Mirror</div>
+                <span class="caption">Alignment Mirror</span>
               </div>
-              <div class="proof-card">
+              <div class="image-card medium">
                 <img src="assets/featured/steady-cover.png" onerror="this.onerror=null;this.src='assets/proof/steady-cover.png';" alt="Steady cover">
-                <div class="proof-label">Steady</div>
+                <span class="caption">Steady</span>
               </div>
             </div>
           </div>
+
           <div class="proof-row">
-            <div class="proof-card">
+            <div class="image-card contain">
               <img src="assets/featured/long-way-back-title.png" onerror="this.onerror=null;this.src='assets/proof/long-way-back-title.png';" alt="The Long Way Back title page">
-              <div class="proof-label">The Long Way Back</div>
+              <span class="caption">Long Way Back</span>
             </div>
-            <div class="proof-card">
+            <div class="image-card contain">
               <img src="assets/featured/tether-title.png" onerror="this.onerror=null;this.src='assets/proof/tether-title.png';" alt="Tether title page">
-              <div class="proof-label">Tether</div>
+              <span class="caption">Tether</span>
             </div>
-            <div class="proof-card">
+            <div class="image-card contain">
               <img src="assets/logos/tkm-star.jpeg" alt="The Krystal Method star mark">
-              <div class="proof-label">Brand mark</div>
+              <span class="caption">Brand mark</span>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="wrap">
-      <div class="manifesto-grid">
-        <article class="manifesto-card">
-          <p class="kicker">01</p>
+    <section class="stripe">
+      <div class="wrap stripe-inner">
+        <article class="stripe-card">
+          <div class="card-number">01</div>
           <h4>Truth before polish</h4>
           <p>The first job is not decoration. It is figuring out what the brand actually is, what people respond to, and what deserves to be amplified.</p>
         </article>
-        <article class="manifesto-card">
-          <p class="kicker">02</p>
+        <article class="stripe-card">
+          <div class="card-number">02</div>
           <h4>Direction before volume</h4>
           <p>More content is not the answer to confusion. Clearer language, sharper positioning, and consistent systems are.</p>
         </article>
-        <article class="manifesto-card">
-          <p class="kicker">03</p>
+        <article class="stripe-card">
+          <div class="card-number">03</div>
           <h4>Systems that feel alive</h4>
           <p>Pages, assets, copy, and workflows should make the brand easier to live with — not flatten the personality out of it.</p>
         </article>
@@ -670,139 +943,161 @@
 
     <section id="truth" class="wrap">
       <div class="truth-grid">
-        <div class="quote-panel about-card">
-          <img class="star" src="assets/logos/tkm-star.jpeg" alt="">
-          <div class="line" aria-hidden="true"></div>
+        <article class="quote-block">
+          <img src="assets/logos/tkm-star.jpeg" alt="">
           <blockquote>We do not manufacture identities. We reveal them.</blockquote>
-        </div>
-        <div class="about-card">
-          <p class="kicker">What this is</p>
+        </article>
+
+        <article class="text-block">
+          <p class="eyebrow">What this is</p>
           <h2>A strategic brand methodology, not a design factory</h2>
           <p>Every project starts the same way: collect the evidence. Audience reactions. Instinct. Voice. Work history. Repetition. Personality. Friction. The things that keep showing up are usually the truth.</p>
           <p>The result is not a prettier mask. It is a usable system — voice, positioning, visual direction, content structure, pages, workflows, and rules that keep the brand from drifting every time the next idea shows up.</p>
-          <p>I do not think in isolated deliverables. I think in ecosystems</p>
-        </div>
+          <p>I do not think in isolated deliverables. I think in ecosystems.</p>
+        </article>
       </div>
     </section>
 
     <section id="evidence" class="wrap">
       <div class="section-head">
-        <p class="kicker">Evidence</p>
-        <h2>Built systems, not isolated deliverables</h2>
-        <p class="lead muted">Different worlds, same process: reveal the truth, define the rules, build the assets, and keep the whole thing coherent.</p>
+        <p class="eyebrow">Evidence</p>
+        <div>
+          <h2>Built systems, not isolated deliverables</h2>
+          <p>Different worlds, same process: reveal the truth, define the rules, build the assets, and keep the whole thing coherent.</p>
+        </div>
       </div>
 
-      <div class="evidence-layout">
-        <article class="case-card">
-          <div class="case-grid">
-            <div class="case-copy">
-              <p class="case-num">01 · Brand ecosystem</p>
-              <h3>Mr. Satan</h3>
-              <p>A South Florida industrial / EBM / fetish DJ brand developed into a booking-ready ecosystem with identity direction, visual rules, an EPK, a landing page, and event-facing assets.</p>
-              <div class="tags">
-                <span>Brand strategy</span>
-                <span>EPK</span>
-                <span>Landing page</span>
-                <span>Social system</span>
-                <span>Booking assets</span>
-              </div>
+      <article class="case-card">
+        <div class="case-grid">
+          <div class="case-copy">
+            <div class="case-type">01 · Brand ecosystem</div>
+            <h3>Mr. Satan</h3>
+            <p>A South Florida industrial / EBM / fetish DJ brand developed into a booking-ready ecosystem with identity direction, visual rules, an EPK, a landing page, and event-facing assets.</p>
+            <div class="tag-row">
+              <span>Brand strategy</span>
+              <span>EPK</span>
+              <span>Landing page</span>
+              <span>Social system</span>
+              <span>Booking assets</span>
             </div>
-            <div class="case-visual single">
+          </div>
+          <div class="case-images single">
+            <div class="image-card">
               <img src="assets/featured/mr-satan-epk-cover.png" onerror="this.onerror=null;this.src='assets/proof/mr-satan-epk-cover.png';" alt="Mr. Satan EPK cover">
             </div>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="case-card">
-          <div class="case-grid">
-            <div class="case-copy">
-              <p class="case-num">02 · Publishing ecosystem</p>
-              <h3>The Inner Hour</h3>
-              <p>An AI-assisted survivor-support publishing world with books, journals, voice, interiors, emotional positioning, and product logic built to work together — not just sit next to each other.</p>
-              <div class="tags">
-                <span>Publishing system</span>
-                <span>Editorial direction</span>
-                <span>Book interiors</span>
-                <span>KDP prep</span>
-                <span>Product world</span>
-              </div>
+      <article class="case-card">
+        <div class="case-grid">
+          <div class="case-copy">
+            <div class="case-type">02 · Publishing ecosystem</div>
+            <h3>The Inner Hour</h3>
+            <p>An AI-assisted survivor-support publishing world with books, journals, voice, interiors, emotional positioning, and product logic built to work together — not just sit next to each other.</p>
+            <div class="tag-row">
+              <span>Publishing system</span>
+              <span>Editorial direction</span>
+              <span>Book interiors</span>
+              <span>KDP prep</span>
+              <span>Product world</span>
             </div>
-            <div class="case-visual">
-              <div class="book-grid">
+          </div>
+          <div class="case-images">
+            <div class="book-layout">
+              <div class="image-card">
                 <img src="assets/featured/alignment-mirror-cover.png" onerror="this.onerror=null;this.src='assets/proof/alignment-mirror-cover.png';" alt="The Alignment Mirror cover">
+              </div>
+              <div class="image-card">
                 <img src="assets/featured/steady-cover.png" onerror="this.onerror=null;this.src='assets/proof/steady-cover.png';" alt="Steady cover">
+              </div>
+              <div class="image-card contain">
                 <img src="assets/featured/long-way-back-title.png" onerror="this.onerror=null;this.src='assets/proof/long-way-back-title.png';" alt="The Long Way Back title page">
+              </div>
+              <div class="image-card contain">
                 <img src="assets/featured/tether-title.png" onerror="this.onerror=null;this.src='assets/proof/tether-title.png';" alt="Tether title page">
               </div>
             </div>
           </div>
+        </div>
+      </article>
+
+      <div class="mini-proof">
+        <article class="case-card">
+          <div class="mini-proof-inner">
+            <div class="image-card contain">
+              <img src="assets/logos/tkm-logo-horizontal.png" alt="The Krystal Method logo">
+            </div>
+            <div>
+              <div class="case-type">03 · Voice, offers, pages</div>
+              <h4>Brand architecture</h4>
+              <p class="lead">Positioning, bios, offer structure, page planning, and the internal rules that keep the brand feeling like itself.</p>
+            </div>
+          </div>
         </article>
 
-        <div class="small-cases">
-          <article class="proof-mini">
-            <img src="assets/logos/tkm-logo-horizontal.png" alt="The Krystal Method logo">
-            <div>
-              <p class="case-num">03 · Voice, offers, pages</p>
-              <h4>Brand architecture</h4>
-              <p>Positioning, bios, offer structure, copy direction, page planning, and the internal rules that keep the brand feeling like itself everywhere it shows up.</p>
+        <article class="case-card">
+          <div class="mini-proof-inner">
+            <div class="image-card contain">
+              <img src="assets/logos/tkm-star.jpeg" alt="The Krystal Method star mark">
             </div>
-          </article>
-          <article class="proof-mini">
-            <img src="assets/logos/tkm-star.jpeg" alt="The Krystal Method star icon">
             <div>
-              <p class="case-num">04 · AI support tools</p>
+              <div class="case-type">04 · AI support tools</div>
               <h4>Creator systems</h4>
-              <p>Custom AI-assisted workflows and app concepts designed around idea capture, research, organization, reminders, and creative momentum.</p>
+              <p class="lead">AI-assisted workflows and app concepts for idea capture, research, organization, reminders, and creative momentum.</p>
             </div>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section id="builds" class="wrap">
       <div class="section-head">
-        <p class="kicker">What I build</p>
-        <h2>Useful systems for strong ideas lacking direction</h2>
+        <p class="eyebrow">What I build</p>
+        <div>
+          <h2>Useful systems for strong ideas lacking direction</h2>
+        </div>
       </div>
+
       <div class="build-grid">
-        <article class="build-card">
+        <article class="service-card">
           <div>
-            <div class="build-num">01</div>
+            <div class="card-number">01</div>
             <h4>Brand strategy</h4>
           </div>
           <p>Voice, positioning, audience fit, rules, and the core truth underneath the noise.</p>
         </article>
-        <article class="build-card">
+        <article class="service-card">
           <div>
-            <div class="build-num">02</div>
+            <div class="card-number">02</div>
             <h4>Creative direction</h4>
           </div>
           <p>Visual language, content direction, asset choices, and the boundaries for what belongs.</p>
         </article>
-        <article class="build-card">
+        <article class="service-card">
           <div>
-            <div class="build-num">03</div>
+            <div class="card-number">03</div>
             <h4>Landing pages</h4>
           </div>
           <p>Pages that explain the offer clearly, hold the brand, and move the right people toward action.</p>
         </article>
-        <article class="build-card">
+        <article class="service-card">
           <div>
-            <div class="build-num">04</div>
+            <div class="card-number">04</div>
             <h4>EPKs & media kits</h4>
           </div>
           <p>Press-ready identity packages for DJs, artists, creators, performers, and personality-led brands.</p>
         </article>
-        <article class="build-card">
+        <article class="service-card">
           <div>
-            <div class="build-num">05</div>
+            <div class="card-number">05</div>
             <h4>Publishing systems</h4>
           </div>
           <p>Book worlds, journals, interiors, KDP prep, and digital product ecosystems that make sense together.</p>
         </article>
-        <article class="build-card">
+        <article class="service-card">
           <div>
-            <div class="build-num">06</div>
+            <div class="card-number">06</div>
             <h4>AI workflows</h4>
           </div>
           <p>Practical systems for research, drafting, organization, content support, and creative operations.</p>
@@ -812,32 +1107,35 @@
 
     <section id="method" class="wrap">
       <div class="section-head">
-        <p class="kicker">Method</p>
-        <h2>Discovery before design, always</h2>
+        <p class="eyebrow">Method</p>
+        <div>
+          <h2>Discovery before design, always</h2>
+        </div>
       </div>
+
       <div class="method-grid">
         <article class="method-card">
-          <span class="method-step">01 · Discover</span>
+          <div class="card-number">01 · Discover</div>
           <h4>Collect reality</h4>
-          <p>Audience reactions, work history, goals, instinct, strengths, contradictions, and the clues the brand is already leaving behind.</p>
+          <p>Audience reactions, work history, goals, instinct, strengths, contradictions, and the clues the brand is already leaving.</p>
         </article>
         <article class="method-card">
-          <span class="method-step">02 · Decode</span>
+          <div class="card-number">02 · Decode</div>
           <h4>Find the pattern</h4>
           <p>What repeats? What resonates? What feels inevitable? The direction usually appears once the evidence is in one place.</p>
         </article>
         <article class="method-card">
-          <span class="method-step">03 · Define</span>
+          <div class="card-number">03 · Define</div>
           <h4>Name the world</h4>
           <p>Voice, positioning, visual language, story logic, and boundaries for what belongs — and what does not.</p>
         </article>
         <article class="method-card">
-          <span class="method-step">04 · Build</span>
+          <div class="card-number">04 · Build</div>
           <h4>Create the system</h4>
-          <p>Pages, EPKs, books, bios, templates, content logic, workflows, and assets shaped around the truth already uncovered.</p>
+          <p>Pages, EPKs, books, bios, templates, content logic, workflows, and assets shaped around the truth.</p>
         </article>
         <article class="method-card">
-          <span class="method-step">05 · Evolve</span>
+          <div class="card-number">05 · Evolve</div>
           <h4>Refine without drifting</h4>
           <p>Use evidence, not panic, to adjust the system while keeping the core identity intact.</p>
         </article>
@@ -846,14 +1144,14 @@
 
     <section class="wrap">
       <div class="about-grid">
-        <article class="service-blurb">
-          <p class="kicker">About Krystal</p>
+        <article class="text-block">
+          <p class="eyebrow">About Krystal</p>
           <h3>I think in ecosystems</h3>
           <p>My background crosses hospitality, restaurant management, operations, social media, client service, brand voice development, and creative direction. That mix taught me how to spot patterns under pressure and organize them into something people can actually use.</p>
           <p>I use AI heavily, but not casually. Taste, editing, judgment, and final direction stay human.</p>
         </article>
-        <article class="service-blurb">
-          <p class="kicker">Why it works</p>
+        <article class="text-block">
+          <p class="eyebrow">Why it works</p>
           <h3>Because the work is not random</h3>
           <p>Most people with a real brand problem do not lack ideas. They lack structure, language, and a coherent way to express what is already there. That is the gap I close.</p>
           <p>The goal is not just something that looks good. The goal is a system you can actually live inside.</p>
@@ -865,26 +1163,24 @@
       <div class="contact-card">
         <div class="contact-grid">
           <div>
-            <p class="kicker">Contact</p>
+            <p class="eyebrow">Contact</p>
             <h2>Bring me the strong idea</h2>
             <p>Send the project, the problem, the half-formed brand, or the thing that almost makes sense. I will help uncover what is already there and build the system around it.</p>
-            <div class="contact-links">
+            <div class="button-row">
               <a class="button primary" href="https://calendly.com/krystal-method">Book a brainstorm</a>
               <a class="button" href="mailto:Krystal.content.co@gmail.com">Krystal.content.co@gmail.com</a>
               <a class="button" href="https://www.instagram.com/krystal.method/">@krystal.method</a>
               <a class="button" href="https://www.linkedin.com/in/krystal-method">LinkedIn</a>
             </div>
           </div>
-          <div>
-            <img src="assets/logos/tkm-star.jpeg" alt="" style="width:90px; margin-left:auto; opacity:.95;">
-          </div>
+          <img src="assets/logos/tkm-star.jpeg" alt="">
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">The Krystal Method · Branding is discovery, not construction.</div>
+    <div class="wrap">The Krystal Method · Branding is discovery, not construction</div>
   </footer>
 </body>
 </html>
