@@ -656,6 +656,75 @@
       letter-spacing: .16em;
     }
 
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .offer-card {
+      align-content: start;
+      gap: 18px;
+    }
+
+    .offer-card.flagship {
+      border-color: var(--line-bright);
+    }
+
+    .offer-card .price {
+      display: block;
+      font-family: var(--serif);
+      color: var(--lime);
+      font-size: clamp(2.6rem, 4.4vw, 3.8rem);
+      line-height: 1;
+      letter-spacing: -.03em;
+    }
+
+    .offer-card .price-note {
+      display: block;
+      margin-top: 6px;
+      color: var(--taupe);
+      font-size: .62rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+    }
+
+    .offer-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 18px;
+    }
+
+    .offer-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(233,222,204,.10);
+      color: var(--bone-soft);
+      letter-spacing: .02em;
+    }
+
+    .offer-list li::before {
+      content: "—";
+      color: var(--lime);
+      margin-right: 10px;
+    }
+
+    .add-on-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .add-on-stack .service-card {
+      min-height: 0;
+    }
+
+    .add-on-stack .price {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+    }
+
     @media (max-width: 1040px) {
       .hero-grid,
       .truth-grid,
@@ -684,7 +753,8 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .mini-proof {
+      .mini-proof,
+      .offer-grid {
         grid-template-columns: 1fr;
       }
 
@@ -771,7 +841,8 @@
       .stripe-inner,
       .build-grid,
       .method-grid,
-      .mini-proof-inner {
+      .mini-proof-inner,
+      .offer-list {
         grid-template-columns: 1fr;
       }
 
@@ -843,6 +914,7 @@
         <a href="#truth">Truth</a>
         <a href="#evidence">Evidence</a>
         <a href="#builds">Builds</a>
+        <a href="#offer">Offer</a>
         <a href="#method">Method</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -909,8 +981,8 @@
               <span class="caption">Long Way Back</span>
             </div>
             <div class="image-card contain">
-              <img src="assets/featured/tether-title.png" onerror="this.onerror=null;this.src='assets/proof/tether-title.png';" alt="Tether title page">
-              <span class="caption">Tether</span>
+              <img src="assets/featured/tether-title.png" onerror="this.onerror=null;this.src='assets/proof/tether-title.png';" alt="A Small Book of Quiet Things title page">
+              <span class="caption">A Small Book of Quiet Things</span>
             </div>
             <div class="image-card contain">
               <img src="assets/logos/tkm-star.jpeg" alt="The Krystal Method star mark">
@@ -980,6 +1052,9 @@
               <span>Social system</span>
               <span>Booking assets</span>
             </div>
+            <div class="button-row">
+              <a class="button" href="https://krystal929-afk.github.io/Mr.Satan-EPK/" target="_blank" rel="noopener">See the live Mr. Satan page &rarr;</a>
+            </div>
           </div>
           <div class="case-images single">
             <div class="image-card">
@@ -1015,7 +1090,7 @@
                 <img src="assets/featured/long-way-back-title.png" onerror="this.onerror=null;this.src='assets/proof/long-way-back-title.png';" alt="The Long Way Back title page">
               </div>
               <div class="image-card contain">
-                <img src="assets/featured/tether-title.png" onerror="this.onerror=null;this.src='assets/proof/tether-title.png';" alt="Tether title page">
+                <img src="assets/featured/tether-title.png" onerror="this.onerror=null;this.src='assets/proof/tether-title.png';" alt="A Small Book of Quiet Things title page">
               </div>
             </div>
           </div>
@@ -1102,6 +1177,55 @@
           </div>
           <p>Practical systems for research, drafting, organization, content support, and creative operations.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="offer" class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The offer</p>
+        <div>
+          <h2>The Krystal Method <span class="display-alt">Intensive</span></h2>
+        </div>
+      </div>
+
+      <div class="offer-grid">
+        <article class="service-card offer-card flagship">
+          <div>
+            <div class="card-number">Flagship</div>
+            <span class="price">$497</span>
+            <span class="price-note">Introductory</span>
+          </div>
+          <p>A complete brand reset for creators and small businesses — without the agency price tag. Done in 72 hours.</p>
+          <ul class="offer-list">
+            <li>Brand clarity session</li>
+            <li>Brand voice guide</li>
+            <li>Bio rewrite</li>
+            <li>Landing page copy</li>
+            <li>Social profile optimization</li>
+            <li>30 content ideas</li>
+            <li>AI workflow recommendations</li>
+            <li>72-hour turnaround</li>
+          </ul>
+        </article>
+
+        <div class="add-on-stack">
+          <article class="service-card offer-card">
+            <div>
+              <div class="card-number">Add-on</div>
+              <h4>Landing Page Design</h4>
+            </div>
+            <span class="price">+$250</span>
+            <p>I build the page. Not just the copy — the actual thing, live and ready to share.</p>
+          </article>
+          <article class="service-card offer-card">
+            <div>
+              <div class="card-number">Add-on</div>
+              <h4>EPK / Media Kit</h4>
+            </div>
+            <span class="price">+$300</span>
+            <p>Essential for musicians, DJs, speakers, and creators who need a press-ready identity package.</p>
+          </article>
+        </div>
       </div>
     </section>
 
