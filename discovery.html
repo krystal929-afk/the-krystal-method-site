@@ -55,7 +55,7 @@
 
         /* Current Understanding Section - Hidden by default, only shows for warm leads */
         #understanding-section {
-            display: none !important;
+            display: none;
             background: var(--off-black);
             border: 1px solid var(--royal-purple);
             padding: 40px;
@@ -210,24 +210,38 @@
     </div>
 
     <script>
-        // Handle URL Parameters
+        // Handle URL Parameters (all inserted as text, never HTML)
         const params = new URLSearchParams(window.location.search);
-        const client = params.get('client');
-        const biz = params.get('biz');
-        const needs = params.get('needs');
+        const p = k => (params.get(k) || '').trim();
+        const client = p('client'), biz = p('biz'), needs = p('needs'),
+              audience = p('audience'), stage = p('stage'), has = p('has');
 
         if (client) {
-            document.getElementById('client-chip').innerText = `FOR: ${client}`;
-            document.getElementById('client-chip').style.display = 'inline-block';
+            const chip = document.getElementById('client-chip');
+            chip.textContent = 'FOR: ' + client;
+            chip.style.display = 'inline-block';
             document.getElementById('client_name_hidden').value = client;
         }
 
-        // Only show understanding section if biz or needs are present
-        if (biz || needs) {
+        // Only show understanding section when any context param is present
+        if (biz || needs || audience || stage || has) {
+            const box = document.getElementById('understanding-content');
+            const para = (parts) => {
+                const el = document.createElement('p');
+                el.style.marginBottom = '12px';
+                parts.forEach(([txt, strong]) => {
+                    const n = strong ? document.createElement('strong') : document.createTextNode(txt);
+                    if (strong) n.textContent = txt;
+                    el.appendChild(n);
+                });
+                box.appendChild(el);
+            };
+            para([["I understand you're building "], [biz || 'something incredible', true], ['.']]);
+            if (audience) para([['You serve '], [audience, true], ['.']]);
+            if (stage) para([["You're at the "], [stage, true], [' stage.']]);
+            if (has) para([['You already have '], [has, true], ['.']]);
+            if (needs) para([['Right now, it looks like we need to focus on '], [needs, true], [' to get you to the next level.']]);
             document.getElementById('understanding-section').style.display = 'block';
-            let content = `I understand you're building <strong>${biz || 'something incredible'}</strong>. `;
-            if (needs) content += `Right now, it looks like we need to focus on <strong>${needs}</strong> to get you to the next level.`;
-            document.getElementById('understanding-content').innerHTML = content;
         }
 
         // UI Interactions
@@ -246,17 +260,21 @@
             btn.disabled = true;
 
             const data = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            });
+            let ok = false;
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                ok = response.ok;
+            } catch (err) { ok = false; }
 
-            if (response.ok) {
+            if (ok) {
                 form.style.display = 'none';
                 document.getElementById('success-msg').style.display = 'block';
             } else {
-                btn.innerText = 'Submit Discovery';
+                btn.innerText = 'Reveal My Common Thread';
                 btn.disabled = false;
                 document.getElementById('error-msg').style.display = 'block';
             }
