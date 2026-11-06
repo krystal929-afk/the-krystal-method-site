@@ -72,7 +72,7 @@
         .form-group { margin-bottom: 40px; }
         label { display: block; font-family: 'Oswald', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 12px; color: var(--dim-taupe); }
         
-        input[type="text"], textarea {
+        input[type="text"], input[type="email"], textarea {
             width: 100%;
             background: transparent;
             border: none;
@@ -84,12 +84,13 @@
             outline: none;
             transition: all 0.4s ease;
         }
-        input[type="text"]:focus, textarea:focus { border-color: var(--electric-lime); box-shadow: 0 1px 0 var(--electric-lime); }
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus { border-color: var(--electric-lime); box-shadow: 0 1px 0 var(--electric-lime); }
 
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .checkbox-group { display: flex; align-items: center; gap: 12px; padding: 20px; border: 1px solid var(--line); cursor: pointer; transition: all 0.3s ease; background: var(--off-black); }
         .checkbox-group:hover { border-color: var(--muted-taupe); background: rgba(182, 176, 167, 0.05); }
-        .checkbox-group input { display: none; }
+        .checkbox-group input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+        .checkbox-group:focus-within { outline: 2px solid var(--electric-lime); outline-offset: 2px; }
         .checkbox-group.active { border-color: var(--electric-lime); background: rgba(198, 255, 46, 0.08); box-shadow: 0 0 15px rgba(198, 255, 46, 0.1); }
         .checkbox-group span { font-size: 0.95rem; color: var(--paper); }
 
@@ -163,6 +164,10 @@
                     <input type="text" name="name" required placeholder="Name or Handle">
                 </div>
                 <div class="form-group">
+                    <label for="contact-email">Where can I reply to you?</label>
+                    <input id="contact-email" type="email" name="email" autocomplete="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
                     <label>Where can I find your work?</label>
                     <input type="text" name="links" required placeholder="Instagram, Website, etc.">
                 </div>
@@ -200,6 +205,10 @@
                 <div class="form-group">
                     <label>What would it feel like if everything you built reflected that truth?</label>
                     <textarea name="vision_2" rows="4" placeholder="Describe the feeling, not the deliverables."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="additional-notes">Anything I should know or got wrong?</label>
+                    <textarea id="additional-notes" name="additional_notes" rows="4" placeholder="Context, corrections, questions, or anything else you want me to know."></textarea>
                 </div>
             </div>
 
@@ -246,8 +255,9 @@
 
         // UI Interactions
         document.querySelectorAll('.checkbox-group').forEach(group => {
-            group.addEventListener('click', function() {
-                this.classList.toggle('active');
+            const input = group.querySelector('input[type="checkbox"]');
+            input.addEventListener('change', () => {
+                group.classList.toggle('active', input.checked);
             });
         });
 
