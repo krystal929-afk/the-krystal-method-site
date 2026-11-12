@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:," />
+<title>Service Request — The Krystal Method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505;
+    --panel:#0d0d0d;
+    --panel-2:#111111;
+    --line:#262626;
+    --line-soft:#1c1c1c;
+    --lime:#C6FF2E;
+    --lime-dim:#9acc1f;
+    --text:#f2f2ed;
+    --muted:#a8a8a0;
+    --muted-2:#7d7d76;
+    --error:#ff8a7a;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Oswald", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-weight:300;
+    letter-spacing:.01em;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--lime)}
+  .wrap{
+    max-width:680px;
+    margin:0 auto;
+    padding:28px 20px 56px;
+  }
+  /* Header */
+  .brand{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    padding-bottom:22px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:28px;
+  }
+  .brand-left{display:flex;gap:14px;align-items:flex-start}
+  .star{
+    width:34px;height:34px;flex:0 0 34px;margin-top:4px;
+    color:var(--lime);
+  }
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--lime);
+    font-weight:500;
+    margin:0 0 6px;
+  }
+  h1{
+    font-family:"Cormorant Garamond", Georgia, serif;
+    font-weight:600;
+    font-size:42px;
+    line-height:.95;
+    margin:0;
+    letter-spacing:.01em;
+  }
+  h1 em{font-style:italic;font-weight:500}
+  .tagline{
+    margin:10px 0 0;
+    font-size:13px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:400;
+  }
+  .tagline span{color:var(--lime)}
+  .intro{
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.6;
+    margin:0 0 8px;
+    max-width:56ch;
+  }
+  .intro strong{color:var(--text);font-weight:500}
+
+  /* How it works strip */
+  .steps{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:10px;
+    margin:22px 0 28px;
+  }
+  .step{
+    background:var(--panel);
+    border:1px solid var(--line-soft);
+    border-radius:10px;
+    padding:14px 14px 12px;
+  }
+  .step b{
+    display:block;
+    font-family:"Cormorant Garamond", serif;
+    font-size:22px;
+    line-height:1;
+    color:var(--lime);
+    margin-bottom:6px;
+    font-weight:600;
+  }
+  .step span{font-size:13.5px;line-height:1.45;color:var(--muted);display:block}
+  @media (max-width:560px){
+    .steps{grid-template-columns:1fr}
+    h1{font-size:36px}
+    .wrap{padding:22px 16px 48px}
+  }
+
+  /* Form */
+  form{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 22px 22px;
+  }
+  @media (max-width:560px){ form{padding:20px 16px 18px} }
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  @media (max-width:560px){ .grid{grid-template-columns:1fr} }
+  .field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+  .field.full{grid-column:1 / -1}
+  label{
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:500;
+    color:var(--text);
+  }
+  label .req{color:var(--lime)}
+  label .opt{
+    color:var(--muted-2);
+    letter-spacing:.08em;
+    text-transform:none;
+    font-weight:300;
+    font-size:12px;
+  }
+  .hint{
+    font-size:13.5px;
+    color:var(--muted);
+    line-height:1.45;
+    margin:0;
+    font-weight:300;
+  }
+  input, select, textarea{
+    width:100%;
+    background:#080808;
+    border:1px solid var(--line);
+    border-radius:9px;
+    color:var(--text);
+    font-family:inherit;
+    font-size:16px;
+    font-weight:300;
+    padding:13px 14px;
+    min-height:48px;
+    outline:none;
+    transition:border-color .15s, box-shadow .15s;
+    appearance:none;
+  }
+  textarea{min-height:150px;resize:vertical;line-height:1.55}
+  select{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C6FF2E' stroke-width='1.8'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+    padding-right:38px;
+  }
+  input[type="date"]{color-scheme:dark}
+  input:focus, select:focus, textarea:focus{
+    border-color:var(--lime);
+    box-shadow:0 0 0 3px rgba(198,255,46,.14);
+  }
+  input::placeholder, textarea::placeholder{color:#5c5c56}
+
+  /* Priority toggle */
+  .priority{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .priority label{
+    text-transform:none;
+    letter-spacing:0;
+    cursor:pointer;
+  }
+  .priority label{position:relative}
+  .priority input{
+    appearance:none;-webkit-appearance:none;
+    position:absolute;left:14px;top:50%;transform:translateY(-50%);
+    width:20px;height:20px;min-height:20px;padding:0;margin:0;
+    border-radius:50%;border:2px solid #4a4a44;background:#080808;
+    cursor:pointer;flex:none;z-index:1;
+  }
+  .priority input:checked{border-color:var(--lime);background:var(--lime);box-shadow:inset 0 0 0 4px #080808}
+  .priority input:focus-visible{box-shadow:0 0 0 3px rgba(198,255,46,.25)}
+  .priority input:checked:focus-visible{box-shadow:inset 0 0 0 4px #080808, 0 0 0 3px rgba(198,255,46,.25)}
+  .priority .pill{
+    display:flex;align-items:center;gap:10px;
+    border:1px solid var(--line);
+    background:#080808;
+    border-radius:9px;
+    padding:13px 14px 13px 46px;
+    min-height:48px;
+    font-size:15px;
+    font-weight:400;
+    color:var(--muted);
+    transition:all .15s;
+  }
+  .priority input:checked ~ .pill{border-color:var(--lime);color:var(--text);background:rgba(198,255,46,.06)}
+  .priority .pill small{display:block;font-size:12.5px;color:var(--muted);font-weight:300;line-height:1.3}
+  .priority .pill-text{display:flex;flex-direction:column}
+
+  /* Honeypot — hidden from humans */
+  .hp{
+    position:absolute !important;
+    left:-9999px !important;
+    top:auto;
+    width:1px;height:1px;
+    overflow:hidden;
+    opacity:0;
+    pointer-events:none;
+  }
+
+  .submit{
+    width:100%;
+    background:var(--lime);
+    color:#0a0f00;
+    border:none;
+    border-radius:10px;
+    padding:16px 18px;
+    min-height:54px;
+    font-family:inherit;
+    font-size:15px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:4px;
+    transition:background .15s, transform .1s;
+  }
+  .submit:hover{background:#d4ff57}
+  .submit:active{transform:translateY(1px)}
+  .submit:disabled{opacity:.6;cursor:wait}
+  .fineprint{
+    text-align:center;
+    color:var(--muted-2);
+    font-size:13px;
+    margin:14px 0 0;
+    line-height:1.5;
+  }
+
+  /* States */
+  .alert{
+    display:none;
+    border-radius:10px;
+    padding:16px 16px;
+    margin-bottom:18px;
+    font-size:15px;
+    line-height:1.55;
+  }
+  .alert.show{display:block}
+  .alert-error{
+    background:rgba(255,90,70,.09);
+    border:1px solid rgba(255,138,122,.45);
+    color:#ffd9d3;
+  }
+  .alert-error a{color:#fff;text-decoration:underline}
+
+  .success{
+    display:none;
+    background:var(--panel);
+    border:1px solid var(--lime);
+    border-radius:var(--radius);
+    padding:36px 26px 30px;
+    text-align:center;
+  }
+  .success.show{display:block}
+  .success .star{margin:0 auto 16px;width:40px;height:40px}
+  .success p{
+    font-family:"Cormorant Garamond", Georgia, serif;
+    font-size:28px;
+    line-height:1.25;
+    font-weight:600;
+    margin:0 auto;
+    max-width:28ch;
+  }
+  .success .sub{
+    font-family:"Oswald", sans-serif;
+    font-size:14.5px;
+    font-weight:300;
+    color:var(--muted);
+    margin-top:14px;
+    line-height:1.6;
+  }
+
+  footer{
+    margin-top:28px;
+    padding-top:18px;
+    border-top:1px solid var(--line-soft);
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    color:var(--muted-2);
+    font-size:12.5px;
+    letter-spacing:.06em;
+  }
+  footer .f-tag{letter-spacing:.16em;text-transform:uppercase}
+  footer .f-tag i{color:var(--lime);font-style:normal}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="brand">
+    <div class="brand-left">
+      <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6L12 0z"/></svg>
+      <div>
+        <p class="eyebrow">The Krystal Method</p>
+        <h1>Service <em>Request</em></h1>
+        <p class="tagline">Uncover <span>.</span> Refine <span>.</span> Reveal <span>.</span></p>
+      </div>
+    </div>
+  </header>
+
+  <p class="intro">One form, everything in one place. Fill this out instead of sending scattered emails or texts, so nothing gets missed and no work has to be done twice. <strong>Krystal confirms scope and timing before starting.</strong></p>
+
+  <div class="steps" aria-hidden="true">
+    <div class="step"><b>01</b><span>Send one complete request</span></div>
+    <div class="step"><b>02</b><span>Krystal confirms scope &amp; timing</span></div>
+    <div class="step"><b>03</b><span>Work starts once confirmed</span></div>
+  </div>
+
+  <div id="errorBox" class="alert alert-error" role="alert"></div>
+
+  <form id="requestForm" novalidate>
+    <div class="grid">
+      <div class="field">
+        <label for="name">Your name <span class="req">*</span></label>
+        <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your full name">
+      </div>
+      <div class="field">
+        <label for="business">Business <span class="req">*</span></label>
+        <input id="business" name="business" type="text" autocomplete="organization" required placeholder="Business name">
+      </div>
+      <div class="field">
+        <label for="email">Email <span class="req">*</span></label>
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@business.com">
+      </div>
+      <div class="field">
+        <label for="client_code">Client code <span class="req">*</span></label>
+        <input id="client_code" name="client_code" type="text" required placeholder="Enter your client code" autocomplete="off">
+        <p class="hint">The code Krystal gave you</p>
+      </div>
+      <div class="field">
+        <label for="request_type">Request type <span class="req">*</span></label>
+        <select id="request_type" name="request_type" required>
+          <option value="" selected disabled>Choose one</option>
+          <option>Website change</option>
+          <option>Menu or price update</option>
+          <option>Social media post</option>
+          <option>Email campaign</option>
+          <option>Google Business update</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="deadline">Deadline <span class="opt">(optional)</span></label>
+        <input id="deadline" name="deadline" type="date">
+      </div>
+      <div class="field full">
+        <label>Priority</label>
+        <div class="priority" role="radiogroup" aria-label="Priority">
+          <label>
+            <input type="radio" name="priority" value="Normal" checked>
+            <span class="pill"><span class="pill-text">Normal<small>Standard turnaround</small></span></span>
+          </label>
+          <label>
+            <input type="radio" name="priority" value="Urgent">
+            <span class="pill"><span class="pill-text">Urgent<small>Time-sensitive, needs attention fast</small></span></span>
+          </label>
+        </div>
+      </div>
+      <div class="field full">
+        <label for="details">What do you need done? <span class="req">*</span></label>
+        <textarea id="details" name="details" required placeholder="Be specific: what should change, where, and what the finished result should look like."></textarea>
+        <p class="hint">Include all details, links, and files in one message so nothing gets scattered. If you have files, add the links below or note what they are here.</p>
+      </div>
+      <div class="field full" style="margin-bottom:6px">
+        <label for="extra">Anything else / links <span class="opt">(optional)</span></label>
+        <textarea id="extra" name="extra" style="min-height:88px" placeholder="Links, references, logins already shared, or anything else that helps."></textarea>
+      </div>
+    </div>
+
+    <!-- Honeypot: hidden from humans, bots fill it in -->
+    <div class="hp" aria-hidden="true">
+      <label for="_honey">Leave this field empty</label>
+      <input id="_honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
+    </div>
+    <div class="hp" aria-hidden="true">
+      <label for="company_website">Company website</label>
+      <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <button class="submit" id="submitBtn" type="submit">Send request</button>
+    <p class="fineprint">This goes directly to Krystal. You will get a confirmation of scope and timing before work starts.</p>
+  </form>
+
+  <div id="successBox" class="success" role="status">
+    <svg class="star" viewBox="0 0 24 24" fill="#C6FF2E" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6L12 0z"/></svg>
+    <p>Request received. Krystal will confirm scope and timing before starting.</p>
+  </div>
+
+  <footer>
+    <span class="f-tag">The Krystal Method <i>✦</i> Uncover. Refine. Reveal.</span>
+    <span>For current clients only</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var form = document.getElementById('requestForm');
+  var btn = document.getElementById('submitBtn');
+  var errorBox = document.getElementById('errorBox');
+  var successBox = document.getElementById('successBox');
+  var ENDPOINT = 'https://formsubmit.co/ajax/krystal.content.co@gmail.com';
+
+  function showError(html){
+    errorBox.innerHTML = html;
+    errorBox.classList.add('show');
+    errorBox.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+  function hideError(){
+    errorBox.classList.remove('show');
+    errorBox.innerHTML = '';
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    hideError();
+
+    // Native required-field validation (no client-code value check — Krystal verifies it on receipt)
+    if (!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    var honey = document.getElementById('_honey').value;
+    var trap2 = document.getElementById('company_website').value;
+    // If a bot filled the honeypots, silently pretend success without sending
+    if (honey || trap2){
+      form.style.display = 'none';
+      successBox.classList.add('show');
+      successBox.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    var priorityEl = form.querySelector('input[name="priority"]:checked');
+    var payload = {
+      name: document.getElementById('name').value.trim(),
+      business: document.getElementById('business').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      client_code: document.getElementById('client_code').value.trim(),
+      request_type: document.getElementById('request_type').value,
+      details: document.getElementById('details').value.trim(),
+      deadline: document.getElementById('deadline').value || 'Not specified',
+      priority: priorityEl ? priorityEl.value : 'Normal',
+      extra: document.getElementById('extra').value.trim() || '',
+      _replyto: document.getElementById('email').value.trim(),
+      _subject: 'TKM Request: ' + document.getElementById('request_type').value + ' — ' + document.getElementById('business').value.trim(),
+      _template: 'table',
+      _captcha: 'true',
+      _honey: honey
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    }).then(function(res){
+      return res.json().catch(function(){ return {}; }).then(function(data){
+        if (res.ok && data && (data.success === 'true' || data.success === true || res.status === 200)){
+          form.style.display = 'none';
+          hideError();
+          successBox.classList.add('show');
+          successBox.scrollIntoView({behavior:'smooth', block:'center'});
+        } else {
+          throw new Error('send failed');
+        }
+      });
+    }).catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'Send request';
+      showError('Something went wrong and your request was not sent. Please email <a href="mailto:krystal.content.co@gmail.com">krystal.content.co@gmail.com</a> directly with your request.');
+    });
+  });
+})();
+</script>
+</body>
+</html>
