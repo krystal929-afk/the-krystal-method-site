@@ -448,7 +448,7 @@
   var btn = document.getElementById('submitBtn');
   var errorBox = document.getElementById('errorBox');
   var successBox = document.getElementById('successBox');
-  var ENDPOINT = 'https://formsubmit.co/ajax/krystal.content.co@gmail.com';
+  var ENDPOINT = 'https://formsubmit.co/ajax/krystal@thekrystalmethod.com';
 
   function showError(html){
     errorBox.innerHTML = html;
@@ -522,7 +522,7 @@
     }).catch(function(){
       btn.disabled = false;
       btn.textContent = 'Send request';
-      showError('Something went wrong and your request was not sent. Please email <a href="mailto:krystal.content.co@gmail.com">krystal.content.co@gmail.com</a> directly with your request.');
+      showError('Something went wrong and your request was not sent. Please email <a href="mailto:krystal@thekrystalmethod.com">krystal@thekrystalmethod.com</a> directly with your request.');
     });
   });
 })();
